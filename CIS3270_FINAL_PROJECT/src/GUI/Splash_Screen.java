@@ -12,7 +12,7 @@ public class Splash_Screen {
 
     public void initialize() {
         // Load and play audio
-        String audioFilePath = "/Users/osvaldosanchez/Downloads/airplane_sound.mp3";
+        String audioFilePath = "airplane_sound.mp3";
         Media media = new Media(new File(audioFilePath).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
