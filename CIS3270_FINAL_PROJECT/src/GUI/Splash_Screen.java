@@ -2,13 +2,13 @@ package GUI;
 
 import java.io.File;
 
-import GUI.Player;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class Splash_Screen extends Application {
@@ -19,6 +19,7 @@ public class Splash_Screen extends Application {
 		
 		
 		try {
+			
 			
 			Parent root = FXMLLoader.load(getClass().getResource("Splash_Screen.fxml"));
 			Scene scene = new Scene(root);
@@ -34,7 +35,7 @@ public class Splash_Screen extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
