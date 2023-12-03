@@ -7,11 +7,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Welcome">
    <children>
-    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0015cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0718c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="154.0" layoutY="212.0" mnemonicParsing="false" text="User Login" />
-            <Button layoutX="362.0" layoutY="212.0" mnemonicParsing="false" text="Admin Login" />
-            <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="154.0">
+            <Button layoutX="406.0" layoutY="151.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" style="-fx-background-color: #FFFFFF;" text="User" textAlignment="CENTER" underline="true" />
+            <Button layoutX="406.0" layoutY="200.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" style="-fx-background-color: #FFFFFF;" text="Admin" textAlignment="CENTER" underline="true" />
+            <ImageView fitHeight="247.0" fitWidth="292.0" layoutX="31.0" layoutY="78.0">
                <image>
                   <Image url="@icon.png" />
                </image>

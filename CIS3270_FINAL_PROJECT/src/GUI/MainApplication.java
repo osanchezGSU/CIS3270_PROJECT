@@ -46,6 +46,8 @@ public class MainApplication extends Application {
                         fadeIn.setFromValue(0);
                         fadeIn.setToValue(1);
                         fadeIn.play();
+                        
+                        
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
