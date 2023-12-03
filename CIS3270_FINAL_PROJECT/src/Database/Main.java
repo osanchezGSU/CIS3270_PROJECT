@@ -32,8 +32,8 @@ public class Main {
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/Demo";
-			String username = "steve";
-			String password = "PASSWORD"
+			String username = "root";
+			String password = "1234"
 ;
 			Class.forName(driver);
 			
