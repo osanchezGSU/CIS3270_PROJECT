@@ -11,6 +11,14 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="/Users/caugustus/Downloads/mysql-connector-j-8.2.0.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/User/Downloads/mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
