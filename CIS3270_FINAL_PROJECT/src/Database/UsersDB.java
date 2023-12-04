@@ -10,7 +10,7 @@ public class UsersDB {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Updated database name to AeroBookings
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "celes1213";
+    private static final String DB_PASSWORD = "root";
  
     // Method to establish a connection to the database
     public static Connection connect() throws SQLException {
