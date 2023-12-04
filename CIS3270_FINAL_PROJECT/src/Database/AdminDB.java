@@ -7,9 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AdminDB {
-    public static void main(String[] args) {
+   
+
+	
+	
+	public static void main(String[] args) {
+    	
     	try {
-    		Connection con = DriverManager.getConnection("jdbc:mysql:///AeroBookings","root","celes1213");
+    		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/AeroBookings","root","celes1213");
     		Statement st = con.createStatement();
     		String query = "select * from Admin";
     		ResultSet rs = st.executeQuery(query);
@@ -23,7 +28,8 @@ public class AdminDB {
     			
 
     	}
-    }
+	}
+	}
     
-}
+    
 
