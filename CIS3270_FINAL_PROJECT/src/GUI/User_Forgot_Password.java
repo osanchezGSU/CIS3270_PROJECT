@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 public class User_Forgot_Password {
 
     private Stage stage; // Declare the Stage globally
-    private Scene scene; // Declare the Scene globally
+   
 
     public void start(Stage primaryStage) {
         this.stage = primaryStage; // Set the stage globally for later use
