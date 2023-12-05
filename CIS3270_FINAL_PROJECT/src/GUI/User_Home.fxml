@@ -1,63 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Scene_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Main_Menu">
    <children>
-    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0718c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0015cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="346.0" fitWidth="608.0" layoutX="-3.0">
+            <Button layoutX="183.0" layoutY="212.0" mnemonicParsing="false" text="Search Flights" />
+            <Button layoutX="327.0" layoutY="212.0" mnemonicParsing="false" text="Review Orders" />
+            <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="154.0">
                <image>
                   <Image url="@icon.png" />
                </image>
             </ImageView>
-            <HBox layoutY="345.0" prefHeight="55.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="searchFlights" mnemonicParsing="false" onAction="#switchToSearchEngine" prefHeight="153.0" prefWidth="200.0" style="-fx-background-color: cccc;" text="Search Flights" underline="true">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <effect>
-                        <Lighting bumpInput="$null">
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-                  <Button fx:id="reviewOrders" mnemonicParsing="false" onAction="#switchToReviewOrders" prefHeight="153.0" prefWidth="200.0" style="-fx-background-color: #cccc;" text="Review Orders" underline="true">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <effect>
-                        <Lighting bumpInput="$null">
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-                  <Button fx:id="logout" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="153.0" prefWidth="200.0" style="-fx-background-color: #cccc;" text="Logout" underline="true">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <effect>
-                        <Lighting bumpInput="$null">
-                           <light>
-                              <Light.Distant />
-                           </light>
-                        </Lighting>
-                     </effect>
-                  </Button>
-               </children>
-            </HBox>
+            <Button layoutX="273.0" layoutY="286.0" mnemonicParsing="false" text="Logout" />
          </children>
       </AnchorPane>
    </children>
