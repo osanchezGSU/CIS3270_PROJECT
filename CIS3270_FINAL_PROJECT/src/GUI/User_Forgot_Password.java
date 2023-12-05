@@ -9,26 +9,23 @@ import java.sql.SQLException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader; // Import FXMLLoader
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label; // Import Label
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 public class User_Forgot_Password {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private TextField ssnTextField;
 
     @FXML
-    private Label passwordTextArea; // Change TextArea to Label
+    private Label passwordTextArea;
 
     @FXML
     private TextField errorMessage;
@@ -41,8 +38,8 @@ public class User_Forgot_Password {
 
     public void switchToUserLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -86,7 +83,7 @@ public class User_Forgot_Password {
 
     @FXML
     public void passwordField() {
-        passwordField.setText("Some text"); // Ensure passwordField is initialized in your FXML
+        passwordField.setText("Some text");
     }
 
     @FXML
@@ -94,6 +91,7 @@ public class User_Forgot_Password {
         // Initialize other components if needed
     }
 }
+
 
 
 
