@@ -31,7 +31,7 @@ public class UsersDB {
     public static void retrieveUsersData() {
         try (Connection connection = connect()) {
             // Query to retrieve specific data from the Users table
-            String query = "SELECT Id, first_name, last_name, address, zip_code, state, username, password, email, ssn, security_questions, security_answer, user_type FROM Users";
+            String query = "SELECT id, first_name, last_name, address, zip_code, state, username, password, email, ssn, security_questions, security_answer, user_type FROM Users";
             
             // Create a prepared statement with the query
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -40,7 +40,7 @@ public class UsersDB {
             // Process the retrieved data
             while (resultSet.next()) {
                 // Retrieve data for each user
-                int userId = resultSet.getInt("id");
+                int Id = resultSet.getInt("id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 String address = resultSet.getString("address");
@@ -55,7 +55,7 @@ public class UsersDB {
                 String userType = resultSet.getString("user_type");
 
                 // Process retrieved data (you can modify this according to your needs)
-                System.out.println("User ID: " + userId +
+                System.out.println("User ID: " + Id +
                         ", Name: " + firstName + " " + lastName +
                         ", Address: " + address +
                         ", Zip Code: " + zipCode +
@@ -80,3 +80,4 @@ public class UsersDB {
     }
 }
 
+    
