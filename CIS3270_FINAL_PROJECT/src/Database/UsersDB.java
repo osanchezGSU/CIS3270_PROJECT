@@ -54,7 +54,7 @@ public class UsersDB {
                 String securityAnswer = resultSet.getString("security_answer");
                 String userType = resultSet.getString("user_type");
 
-                // Process retrieved data (you can modify this according to your needs)
+                // Process retrieved data 
                 System.out.println("User ID: " + Id +
                         ", Name: " + firstName + " " + lastName +
                         ", Address: " + address +

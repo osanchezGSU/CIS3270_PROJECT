@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class AdminDB {
 
     // Database connection details
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Database name changed to AeroBookings
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; 
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
@@ -20,7 +20,7 @@ public class AdminDB {
 
     public static void retrieveAdminData() {
         try (Connection connection = getConnection()) {
-            // Query to retrieve specific data from the Bookings table (considering it stores admin information)
+            // Query to retrieve specific data from the Bookings table 
             String query = "SELECT admin_id, username, password FROM Admin";
 
             // Create a prepared statement with the query
@@ -34,7 +34,7 @@ public class AdminDB {
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
 
-                // Process retrieved data (you can modify this according to your needs)
+                // Process retrieved data  
                 System.out.println("Admin ID: " + adminId +
                         ", Username: " + username +
                         ", Password: " + password);

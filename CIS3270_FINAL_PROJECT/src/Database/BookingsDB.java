@@ -14,7 +14,7 @@ public class BookingsDB {
     private static final String DB_PASSWORD = "root";
 
     public static void main(String[] args) {
-        // Call a method to retrieve booking data or perform other tasks
+        // Call a method to retrieve booking data 
         retrieveBookingData();
     }
 
