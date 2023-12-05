@@ -2,31 +2,41 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Registration">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Main_Menu">
    <children>
     <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0015cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <PasswordField layoutX="122.0" layoutY="135.0" />
+            <TextField layoutX="122.0" layoutY="93.0" />
+            <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
             <Label layoutX="112.0" layoutY="14.0" text="New User Registration" textFill="WHITE">
                <font>
                   <Font name="Candara Light" size="40.0" />
                </font>
             </Label>
-            <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
-            <TextField fxid="firstName" layoutX="122.0" layoutY="93.0" promptText="First Name" />
-            <TextField fxid="securityQuestion" layoutX="325.0" layoutY="265.0" promptText="Security Question" />
-            <TextField fxid="lastName" layoutX="122.0" layoutY="137.0" promptText="Last Name" />
-            <TextField fxid="streetAddress" layoutX="122.0" layoutY="177.0" promptText="Street Address" />
-            <TextField fxid="zipCode" layoutX="123.0" layoutY="223.0" promptText="ZIP Code" />
-            <TextField fxid="state" layoutX="123.0" layoutY="265.0" promptText="State" />
-            <TextField fxid="password" layoutX="325.0" layoutY="137.0" promptText="Password" />
-            <TextField fxid="Email" layoutX="325.0" layoutY="177.0" promptText="Email" />
-            <TextField fxid="SSN" layoutX="325.0" layoutY="223.0" promptText="SSN" />
-            <TextField fxid="username" layoutX="325.0" layoutY="93.0" promptText="Username" />
-            <Button fxid="submitButton" layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
+            <Label layoutX="122.0" layoutY="76.0" text="First Name:" textFill="WHITE" />
+            <Label layoutX="123.0" layoutY="118.0" text="Last Name:" textFill="WHITE" />
+            <PasswordField layoutX="122.0" layoutY="177.0" />
+            <Label layoutX="123.0" layoutY="160.0" text="Street Address:" textFill="WHITE" />
+            <Label layoutX="122.0" layoutY="206.0" text="Zip Code:" textFill="WHITE" />
+            <PasswordField layoutX="122.0" layoutY="223.0" />
+            <Label layoutX="123.0" layoutY="248.0" text="State:" textFill="WHITE" />
+            <PasswordField layoutX="122.0" layoutY="265.0" />
+            <Label layoutX="325.0" layoutY="76.0" text="Username:" textFill="WHITE" />
+            <Label layoutX="326.0" layoutY="118.0" text="Password:" textFill="WHITE" />
+            <PasswordField layoutX="325.0" layoutY="177.0" />
+            <Label layoutX="326.0" layoutY="160.0" text="Email:" textFill="WHITE" />
+            <Label layoutX="325.0" layoutY="206.0" text="SSN:" textFill="WHITE" />
+            <PasswordField layoutX="325.0" layoutY="223.0" />
+            <Label layoutX="326.0" layoutY="248.0" text="Security Question:" textFill="WHITE" />
+            <PasswordField layoutX="325.0" layoutY="265.0" />
+            <PasswordField layoutX="325.0" layoutY="137.0" />
+            <TextField layoutX="325.0" layoutY="95.0" />
          </children>
       </AnchorPane>
    </children>
