@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Home">
+
+ <children>
+
+ <BorderPane layoutX="3.0" layoutY="6.0" prefHeight="386.0" prefWidth="585.0" style="-fx-background-color: #0015cc;">
+
+ <left>
+
+ <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+
+ <children>
+
+ <ImageView fitHeight="75.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+
+ <image>
+
+ <Image url="@icon.png" />
+
+ </image>
+
+ </ImageView>
+
+ <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="Home" />
+
+ <Button id="myBookingButton" fx:id="MyBookingPage" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="95.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="My Bookings" />
+
+ <Button id="logOutButton" fx:id="LogOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="123.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="LogOut" />
+
+ </children>
+
+ </VBox>
+
+ </left>
+
+ <center>
+
+ <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="387.0" BorderPane.alignment="CENTER">
+
+ <children>
+
+ <TableView layoutX="-4.0" layoutY="73.0" prefHeight="314.0" prefWidth="492.0">
+
+ <columns>
+
+ <TableColumn prefWidth="55.40824890136719" text="Flight ID" />
+
+ <TableColumn prefWidth="77.93177795410156" text="From" />
+
+ <TableColumn prefWidth="119.14093017578125" text="Destination" />
+
+ <TableColumn minWidth="0.0" prefWidth="117.39627075195312" text="Departure Time" />
+
+ <TableColumn prefWidth="132.603759765625" text="Arrival Time" />
+
+ </columns>
+
+ </TableView>
+                  <Text layoutX="120.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Current Bookings:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+
+ </children>
+
+ </AnchorPane>
+
+ </center>
+
+ </BorderPane>
+
+ </children>
+
+</AnchorPane>
