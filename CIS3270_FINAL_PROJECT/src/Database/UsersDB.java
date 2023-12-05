@@ -5,13 +5,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
- 
+
 public class UsersDB {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Updated database name to AeroBookings
+<<<<<<< HEAD
     private static final String DB_USER = "mkunigonis";
     private static final String DB_PASSWORD = "root2";
  
+=======
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "root";
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
     // Method to establish a connection to the database
     public static Connection connect() throws SQLException {
         try {
@@ -26,17 +32,17 @@ public class UsersDB {
             throw new SQLException("Failed to connect to the database.");
         }
     }
- 
+
     // Method to retrieve user data from the Users table
     public static void retrieveUsersData() {
         try (Connection connection = connect()) {
             // Query to retrieve specific data from the Users table
-            String query = "SELECT Id, first_name, last_name, address, zip_code, state, username, password, email, ssn, security_questions, security_answer, user_type FROM Users";
+            String query = "SELECT id, first_name, last_name, address, zip_code, state, username, password, email, ssn, security_questions, security_answer, user_type FROM Users";
             
             // Create a prepared statement with the query
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
- 
+
             // Process the retrieved data
             while (resultSet.next()) {
                 // Retrieve data for each user
@@ -53,7 +59,7 @@ public class UsersDB {
                 String securityQuestions = resultSet.getString("security_questions");
                 String securityAnswer = resultSet.getString("security_answer");
                 String userType = resultSet.getString("user_type");
- 
+
                 // Process retrieved data (you can modify this according to your needs)
                 System.out.println("User ID: " + Id +
                         ", Name: " + firstName + " " + lastName +
@@ -73,9 +79,11 @@ public class UsersDB {
             // Handle exceptions
         }
     }
- 
+
     public static void main(String[] args) {
         // Call the method to retrieve users' data or perform other tasks
         retrieveUsersData();
     }
 }
+
+    

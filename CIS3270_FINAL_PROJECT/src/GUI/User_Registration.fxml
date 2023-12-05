@@ -16,16 +16,16 @@
                </font>
             </Label>
             <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
-            <TextField id="firstName" layoutX="122.0" layoutY="93.0" promptText="First Name" />
-            <TextField id="securityQuestion" layoutX="325.0" layoutY="265.0" promptText="Security Question" />
-            <TextField id="lastName" layoutX="122.0" layoutY="137.0" promptText="Last Name" />
-            <TextField id="streetAddress" layoutX="122.0" layoutY="177.0" promptText="Street Address" />
-            <TextField id="zipCode" layoutX="123.0" layoutY="223.0" promptText="ZIP Code" />
-            <TextField id="state" layoutX="123.0" layoutY="265.0" promptText="State" />
-            <TextField id="password" layoutX="325.0" layoutY="137.0" promptText="Password" />
-            <TextField id="Email" layoutX="325.0" layoutY="177.0" promptText="Email" />
-            <TextField id="SSN" layoutX="325.0" layoutY="223.0" promptText="SSN" />
-            <TextField id="username" layoutX="325.0" layoutY="93.0" promptText="Username" />
+            <TextField fxid="firstName" layoutX="122.0" layoutY="93.0" promptText="First Name" />
+            <TextField fxid="securityQuestion" layoutX="325.0" layoutY="265.0" promptText="Security Question" />
+            <TextField fxid="lastName" layoutX="122.0" layoutY="137.0" promptText="Last Name" />
+            <TextField fxid="streetAddress" layoutX="122.0" layoutY="177.0" promptText="Street Address" />
+            <TextField fxid="zipCode" layoutX="123.0" layoutY="223.0" promptText="ZIP Code" />
+            <TextField fxid="state" layoutX="123.0" layoutY="265.0" promptText="State" />
+            <TextField fxid="password" layoutX="325.0" layoutY="137.0" promptText="Password" />
+            <TextField fxid="Email" layoutX="325.0" layoutY="177.0" promptText="Email" />
+            <TextField fxid="SSN" layoutX="325.0" layoutY="223.0" promptText="SSN" />
+            <TextField fxid="username" layoutX="325.0" layoutY="93.0" promptText="Username" />
             <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
          </children>
       </AnchorPane>
