@@ -14,31 +14,31 @@ public class User_Registration {
 	 private Parent root;
 	
 	 @FXML
-	 private PasswordField passwordUserInput;
+	 private PasswordField password;
 	 
 	 @FXML
-	 private PasswordField userSSN;
+	 private PasswordField SSN;
 	 
 	 @FXML
 	 private TextField usernameInput;
 	 
 	 @FXML
-	 private TextField firstNameUser;
+	 private TextField firstName;
 	 
 	 @FXML
-	 private TextField lastNameUser;
+	 private TextField lastName;
 	 
 	 @FXML
-	 private TextField userEmail;
+	 private TextField email;
 	 
 	 @FXML
-	 private TextField userStreetAddress;
+	 private TextField streetAddress;
 	 
 	 @FXML
-	 private TextField userZipCode;
+	 private TextField zipCode;
 	 
 	 @FXML
-	 private TextField userState;
+	 private TextField state;
 
 	 @FXML
 	 private TextField errorMessage;

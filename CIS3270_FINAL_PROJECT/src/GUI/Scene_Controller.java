@@ -63,4 +63,13 @@ public class Scene_Controller {
 		
 	}
 	
+	public void switchToSearchEngine(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("Search_Engine.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+		
+	}
+	
 }

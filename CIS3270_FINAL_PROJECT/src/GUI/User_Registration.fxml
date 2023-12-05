@@ -26,7 +26,7 @@
             <TextField fxid="Email" layoutX="325.0" layoutY="177.0" promptText="Email" />
             <TextField fxid="SSN" layoutX="325.0" layoutY="223.0" promptText="SSN" />
             <TextField fxid="username" layoutX="325.0" layoutY="93.0" promptText="Username" />
-            <Button layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
+            <Button fxid="submitButton" layoutX="271.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
          </children>
       </AnchorPane>
    </children>
