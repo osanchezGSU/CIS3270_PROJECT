@@ -57,7 +57,7 @@ public class BookingsDB {
             throw new SQLException("MySQL JDBC Driver not found: " + e.getMessage());
         }
         
-       return connection;
+      return connection;
     }
 }
 
