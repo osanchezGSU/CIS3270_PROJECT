@@ -8,16 +8,11 @@ import java.sql.SQLException;
 
 public class UsersDB {
     // Database connection details
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Updated database name to AeroBookings
-<<<<<<< HEAD
-    private static final String DB_USER = "mkunigonis";
-    private static final String DB_PASSWORD = "root2";
- 
-=======
-    private static final String DB_USER = "root";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; 
     private static final String DB_PASSWORD = "root";
+    private static final String DB_USER = "root";
 
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
+//github.com/osanchezGSU/CIS3270_PROJECT.git
     // Method to establish a connection to the database
     public static Connection connect() throws SQLException {
         try {
@@ -79,6 +74,77 @@ public class UsersDB {
             // Handle exceptions
         }
     }
+    public static String getUserPW(String username) {
+        try {
+            Connection connection = connect();
+            String str = "SELECT CPassword FROM Customer WHERE CUsername = ?";
+            PreparedStatement statement = connection.prepareStatement(str);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "error";
+    }
+
+    // Method to retrieve user security question based on username
+    public static String getUserSecurityQ(String username) {
+        try {
+            Connection connection = connect();
+            String str = "SELECT SecurityQuestion FROM Customer WHERE CUsername = ?";
+            PreparedStatement statement = connection.prepareStatement(str);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "";
+    }
+
+    // Method to retrieve user security answer based on username
+    public static String getUserSecurityA(String username) {
+        try {
+            Connection connection = connect();
+            String str = "SELECT SecurityAnswer FROM Customer WHERE CUsername = ?";
+            PreparedStatement statement = connection.prepareStatement(str);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "";
+    }
+
+    // Method to retrieve user SSN based on username
+    public static String getUserSSN(String username) {
+        try {
+            Connection connection = connect();
+            String str = "SELECT Cssn FROM Customer WHERE CUsername = ?";
+            PreparedStatement statement = connection.prepareStatement(str);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "error";
+    }
+
 
     public static void main(String[] args) {
         // Call the method to retrieve users' data or perform other tasks
