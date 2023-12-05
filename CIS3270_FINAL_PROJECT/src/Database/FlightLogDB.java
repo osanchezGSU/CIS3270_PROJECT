@@ -7,7 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FlightLogDB {
-    // Database connection details
+	
+	Integer flightId;
+	String fromCity;
+	String 
+	
+	
+}
+	/*    // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Updated database name to AeroBookings
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
@@ -67,5 +74,5 @@ public class FlightLogDB {
     }
 }
 
-
+*/
 

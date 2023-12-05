@@ -65,6 +65,8 @@ public class User_Registration {
 	 @FXML
 	 private Button submitButton;
 	 
+	 
+	 
 	  public void switchToWelcome(ActionEvent event) throws IOException {
 	        Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
 	        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
