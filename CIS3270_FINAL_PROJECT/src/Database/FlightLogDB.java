@@ -38,7 +38,7 @@ public class FlightLogDB {
                 int seatsAvailable = resultSet.getInt("seats_available");
                 String flightDate = resultSet.getString("flight_date");
 
-                // Process retrieved data (you can modify this according to your needs)
+                // Process retrieved data 
                 System.out.println("Flight ID: " + flightId +
                         ", From City: " + fromCity +
                         ", Departure Time: " + departTime +

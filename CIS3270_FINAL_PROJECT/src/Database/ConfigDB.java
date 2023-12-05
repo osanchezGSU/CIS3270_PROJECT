@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package Database;
 
 public class ConfigDB {
@@ -17,3 +18,6 @@ public class ConfigDB {
         return DB_PASSWORD;
     }
 }
+=======
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
