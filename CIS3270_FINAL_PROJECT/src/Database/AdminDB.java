@@ -14,7 +14,7 @@ public class AdminDB {
 	public static void main(String[] args) {
     	
     	try {
-    		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/AeroBookings","root","celes1213");
+    		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/AeroBookings","root","root");
     		Statement st = con.createStatement();
     		String query = "select * from Admin";
     		ResultSet rs = st.executeQuery(query);

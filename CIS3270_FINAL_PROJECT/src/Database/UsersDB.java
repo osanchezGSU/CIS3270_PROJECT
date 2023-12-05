@@ -9,8 +9,8 @@ import java.sql.SQLException;
 public class UsersDB {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; // Updated database name to AeroBookings
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "root";
+    private static final String DB_USER = "mkunigonis";
+    private static final String DB_PASSWORD = "root2";
  
     // Method to establish a connection to the database
     public static Connection connect() throws SQLException {
@@ -40,7 +40,7 @@ public class UsersDB {
             // Process the retrieved data
             while (resultSet.next()) {
                 // Retrieve data for each user
-                int userId = resultSet.getInt("id");
+                int Id = resultSet.getInt("id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 String address = resultSet.getString("address");
@@ -55,7 +55,7 @@ public class UsersDB {
                 String userType = resultSet.getString("user_type");
  
                 // Process retrieved data (you can modify this according to your needs)
-                System.out.println("User ID: " + userId +
+                System.out.println("User ID: " + Id +
                         ", Name: " + firstName + " " + lastName +
                         ", Address: " + address +
                         ", Zip Code: " + zipCode +
