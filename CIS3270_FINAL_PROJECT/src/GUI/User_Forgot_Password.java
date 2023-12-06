@@ -1,91 +1,93 @@
 package GUI;
 
-import java.io.IOException;
 
-import Database.UsersDB;
+import Database.UserDBTEST;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
-public class User_Forgot_Password {
+public class User_Forgot_Password{
 
-    private Stage stage; // Declare the Stage globally
-   
+    @FXML
+    private TextField ssnTextField;
 
-    public void start(Stage primaryStage) {
-        this.stage = primaryStage; // Set the stage globally for later use
+    @FXML
+    private Label passwordTextArea;
 
-        primaryStage.setTitle("WrightFlights ARS Main Menu");
+    @FXML
+    private TextField errorMessage;
 
-        GridPane grid = new GridPane();
-        grid.setHgap(5);
-        grid.setVgap(5);
-        grid.setPadding(new Insets(20, 20, 20, 20));
+    @FXML
+    private Button retrievePasswordButton;
 
-        Label LUsername = new Label("Username");
-        TextField username = new TextField();
-        Button enter1 = new Button("Enter");
-        Button main = new Button("Return to login");
+    @FXML
+    private PasswordField passwordField;
 
-        grid.add(LUsername, 0, 0);
-        grid.add(username, 1, 0);
-        grid.add(enter1, 1, 1);
-        grid.add(main, 2, 2);
-        GridPane.setHalignment(enter1, HPos.CENTER);
-
-        enter1.setOnAction(a -> {
-            Text LSecurityQ = new Text(UsersDB.getUserSecurityQ(username.getText()));
-            Label LSecurityA = new Label("Security Question Answer");
-            TextField SecurityA = new TextField();
-            Button enter2 = new Button("Enter");
-            GridPane.setHalignment(enter2, HPos.CENTER);
-            grid.add(LSecurityQ, 1, 3);
-            grid.add(LSecurityA, 1, 4);
-            grid.add(SecurityA, 1, 5);
-            grid.add(enter2, 1, 6);
-
-            enter2.setOnAction(b -> {
-                if (SecurityA.getText().equalsIgnoreCase(UsersDB.getUserSecurityA(username.getText()))) {
-                    Text passwordText = new Text(UsersDB.getUserPW(username.getText()));
-                    grid.add(passwordText, 1, 7);
-
-                } else {
-                    Alert_Message.display("Password Retrieval Error", "Password Retrieval failed. Please make sure all information is correct and try again.");
-                }
-            });
-        });
-
-        main.setOnAction(c -> {
-            try {
-                switchToUserHome(); // Call the method to switch to User Home
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-        grid.setAlignment(Pos.CENTER);
-
-        Scene scene = new Scene(grid, 700, 300);
-        primaryStage.setTitle("Customer Password Recovery");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    // Method to switch to User Home
-    public void switchToUserHome() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
-        stage.setScene(new Scene(root));
+    public void switchToUserLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
     }
+
+    public void retrievePasswordButtonOnAction(ActionEvent e) {
+        if (!ssnTextField.getText().isBlank()) {
+            retrievePassword();
+        } else {
+            errorMessage.setText("Please enter your SSN.");
+        }
+    }
+
+    public void retrievePassword() {
+        try {
+            UserDBTEST connectNow = new UserDBTEST();
+            Connection connectDB = connectNow.getConnection();
+            
+            String getUserPassword = "SELECT password FROM Users WHERE SSN = ?";
+
+            PreparedStatement preparedStatement = connectDB.prepareStatement(getUserPassword);
+            preparedStatement.setString(1, ssnTextField.getText());
+            ResultSet queryResult = preparedStatement.executeQuery();
+
+            if (queryResult != null && queryResult.next()) {
+                String retrievedPassword = queryResult.getString("password");
+                Platform.runLater(() -> {
+                    passwordTextArea.setText("Your password: " + retrievedPassword);
+                });
+            } else {
+                Platform.runLater(() -> {
+                    errorMessage.setText("No matching SSN found or error in database query.");
+                    passwordTextArea.setText(""); 
+                });
+            }
+            
+            connectDB.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void passwordField() {
+        passwordField.setText("Some text");
+    }
+
+    @FXML
+    public void initialize() {
+    }
 }
-
-

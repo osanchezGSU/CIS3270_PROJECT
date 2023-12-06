@@ -113,13 +113,12 @@ public class User_Registration {
 	        String zipcode = setZipCode.getText();
 	        String state = setState.getText();
 
-	        // Check for blank fields
 	        if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty() || ssn.isEmpty() || address.isEmpty() || zipcode.isEmpty() || state.isEmpty()) {
 	            errorMessage.setText("Please fill in all fields.");
 	            return;
 	        }
 
-	        // Check if username is already taken
+	   
 	        if (isUsernameTaken(username)) {
 	            errorMessage.setText("Username is already taken. Please choose a different one.");
 	            return;
@@ -150,7 +149,7 @@ public class User_Registration {
 	            });
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            // Handle the exception, e.g., display an error message
+	
 	        }
 	    }
 
@@ -163,12 +162,12 @@ public class User_Registration {
 	            preparedStatement.setString(1, username);
 	            ResultSet resultSet = preparedStatement.executeQuery();
 
-	            return resultSet.next(); // If there is a result, the username is taken
+	            return resultSet.next();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            // Handle the exception, e.g., display an error message
+
 	        }
 
-	        return false; // Default to not taken in case of an error
+	        return false; 
 	    }
 	}

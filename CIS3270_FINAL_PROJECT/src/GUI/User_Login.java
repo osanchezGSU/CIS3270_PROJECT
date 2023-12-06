@@ -87,7 +87,7 @@ public class User_Login {
 
             while (queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
-                    // Credentials are correct, switch to user home
+            
                     Platform.runLater(() -> {
                         try {
                             switchToUserHome();
@@ -96,10 +96,10 @@ public class User_Login {
                         }
                     });
                 } else {
-                    // Credentials are invalid, show error message
+                   
                     Platform.runLater(() -> {
                         errorMessage.setText("Invalid Username or Password");
-                        // You can add additional error handling or UI updates here if needed
+                        
                     });
                 }
             }

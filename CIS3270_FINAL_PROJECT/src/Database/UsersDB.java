@@ -7,40 +7,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsersDB {
-    // Database connection details
+ 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/AeroBookings"; 
     private static final String DB_PASSWORD = "root";
     private static final String DB_USER = "root";
 
-//github.com/osanchezGSU/CIS3270_PROJECT.git
-    // Method to establish a connection to the database
     public static Connection connect() throws SQLException {
         try {
-            // Load the MySQL JDBC driver
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
-            // Establish the connection
+ 
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            System.out.println("Connected to the AeroBookings database!"); // Print message upon successful connection
-            return connection;
+            System.out.println("Connected to the AeroBookings database!"); 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             throw new SQLException("Failed to connect to the database.");
         }
     }
 
-    // Method to retrieve user data from the Users table
     public static void retrieveUsersData() {
         try (Connection connection = connect()) {
-            // Query to retrieve specific data from the Users table
+
             String query = "SELECT id, first_name, last_name, address, zip_code, state, username, password, email, ssn, security_questions, security_answer, user_type FROM Users";
-            
-            // Create a prepared statement with the query
+ 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Process the retrieved data
+   
             while (resultSet.next()) {
-                // Retrieve data for each user
+        
                 int Id = resultSet.getInt("id");
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
@@ -71,7 +66,7 @@ public class UsersDB {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle exceptions
+       
         }
     }
     public static String getUserPW(String username) {
@@ -91,7 +86,7 @@ public class UsersDB {
         return "error";
     }
 
-    // Method to retrieve user security question based on username
+  
     public static String getUserSecurityQ(String username) {
         try {
             Connection connection = connect();
@@ -109,7 +104,7 @@ public class UsersDB {
         return "";
     }
 
-    // Method to retrieve user security answer based on username
+
     public static String getUserSecurityA(String username) {
         try {
             Connection connection = connect();
@@ -127,7 +122,7 @@ public class UsersDB {
         return "";
     }
 
-    // Method to retrieve user SSN based on username
+
     public static String getUserSSN(String username) {
         try {
             Connection connection = connect();
@@ -147,7 +142,7 @@ public class UsersDB {
 
 
     public static void main(String[] args) {
-        // Call the method to retrieve users' data or perform other tasks
+      
         retrieveUsersData();
     }
 }
