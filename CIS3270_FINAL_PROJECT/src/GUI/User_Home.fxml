@@ -23,9 +23,15 @@
                         <Image url="@icon.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="Home" />
-                  <Button id="myBookingButton" fx:id="MyBookingPage" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="95.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="My Bookings" />
-                  <Button id="logOutButton" fx:id="LogOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="123.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="LogOut" />
+                  <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="Home" textFill="#dd0c0c">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button id="logOutButton" fx:id="LogOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="123.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="LogOut" textFill="#eb0f0f">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Button>
+                  <Button fx:id="MyBookingButton" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="106.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: black;" text="My Account" textFill="#e40c0c" />
                </children>
             </VBox>
          </left>
@@ -59,22 +65,17 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="5.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight ID:" wrappingWidth="94.60321044921875" AnchorPane.leftAnchor="10.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
                         <Text layoutX="9.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination:" wrappingWidth="119.22894287109375" AnchorPane.leftAnchor="10.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="11.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="119.22894287109375" AnchorPane.leftAnchor="10.0">
+                        <Text layoutX="10.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="119.22894287109375" AnchorPane.leftAnchor="10.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Button fx:id="bookButton" layoutX="79.0" layoutY="162.0" mnemonicParsing="false" onAction="#bookFlight" onDragDetected="#switchToMyBookings" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: red;" text="Book!">
+                        <Button fx:id="bookButton" layoutX="79.0" layoutY="162.0" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: red;" text="Book!">
                            <font>
                               <Font name="System Bold Italic" size="16.0" />
                            </font>
@@ -82,14 +83,13 @@
                         <TextField layoutX="84.0" layoutY="49.0" prefHeight="14.0" prefWidth="140.0" style="-fx-background-color: transparent;" />
                         <Label fx:id="from" layoutX="104.0" layoutY="37.0" prefHeight="23.0" prefWidth="142.0" />
                         <Label fx:id="destination" layoutX="117.0" layoutY="63.0" prefHeight="23.0" prefWidth="142.0" />
-                        <TextField fx:id="name" layoutX="95.0" layoutY="6.0" />
-                        <TextField fx:id="flightID" layoutX="103.0" layoutY="90.0" />
-                        <Label fx:id="date" layoutX="102.0" layoutY="124.0" prefHeight="23.0" prefWidth="142.0" />
+                        <TextField layoutX="95.0" layoutY="6.0" text="aa" />
+                        <Label fx:id="date" layoutX="104.0" layoutY="93.0" prefHeight="23.0" prefWidth="142.0" />
                      </children>
                   </AnchorPane>
-                  <ChoiceBox fx:id="FromChoiceBox" layoutX="10.0" layoutY="39.0" onDragDetected="#getArrivalCities" prefHeight="26.0" prefWidth="164.0" />
-                  <ChoiceBox fx:id="DestinationChoiceBox" layoutX="6.0" layoutY="97.0" onDragDetected="#getDepartureCities" prefWidth="150.0" />
-                  <ChoiceBox fx:id="DateChoiceBox" layoutX="7.0" layoutY="159.0" onDragDetected="#getDates" prefWidth="150.0" />
+                 <ChoiceBox fx:id="DepartureChoiceBox" layoutX="10.0" layoutY="39.0" prefHeight="26.0" prefWidth="164.0" />
+                  <ChoiceBox fx:id="DestinationChoiceBox" layoutX="6.0" layoutY="97.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="DateChoiceBox" layoutX="7.0" layoutY="159.0" prefWidth="150.0" />
                   <Text fx:id="message" fill="#e40808" layoutX="63.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="359.21630859375">
                      <font>
                         <Font size="41.0" />

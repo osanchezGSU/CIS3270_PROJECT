@@ -14,15 +14,16 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-          
+       
             FXMLLoader splashLoader = new FXMLLoader(getClass().getResource("Splash_Screen.fxml"));
             Parent splashRoot = splashLoader.load();
             Scene splashScene = new Scene(splashRoot);
 
+           
             Splash_Screen splashController = splashLoader.getController();
             splashController.initialize();
 
-           
+            
             PauseTransition pause = new PauseTransition(Duration.seconds(2));
             pause.setOnFinished(event -> {
              

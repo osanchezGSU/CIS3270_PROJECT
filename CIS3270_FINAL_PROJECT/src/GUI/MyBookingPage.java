@@ -8,13 +8,16 @@ import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 public class MyBookingPage {
-
-    @FXML
+}
+   /*@FXML
     private Label flightIdLabel;
-    @FXML
+    
+   @FXML
     private Label bookingTimeLabel;
+    
     @FXML
     private Label userIdLabel;
+    
     public void initialize() {
         try {
            
@@ -39,4 +42,4 @@ public class MyBookingPage {
         }
     }
     
-}
+}*/

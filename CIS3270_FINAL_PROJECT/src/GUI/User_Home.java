@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
 import Database.FlightLogDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,71 +16,67 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class User_Home implements Initializable {
-	 	private Stage stage;
-	    private Scene scene;
-	    private Parent root;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
+    @FXML
+    private ChoiceBox<String> DestinationChoiceBox;
+    
+    @FXML
+    private ChoiceBox<String> DateChoiceBox;
 
-	    @FXML
-	    private ChoiceBox<String> DestinationChoiceBox;
-	    @FXML
-	    private ChoiceBox<String> DateChoiceBox;
+    @FXML
+    private ChoiceBox<String> DepartureChoiceBox;
 
-	    @FXML
-	    private ChoiceBox<String> FromChoiceBox;
+    @FXML
+    private Button LogOutButton;
 
-	    @FXML
-	    private Button LogOutButton;
+    @FXML
+    private Button bookButton;
 
-	    @FXML
-	    private Button MyBookingPage;
+    @FXML
+    private Button MyBookingButton;
 
-	    @FXML
-	    private Label date;
+    @FXML
+    private Label date;
 
-	    @FXML
-	    private Label destination;
+    @FXML
+    private Label destination;
 
-	    @FXML
-	    private TextField flightID;
+    @FXML
+    private Label from;
 
-	    @FXML
-	    private Label from;
+    FlightLogDB flightLogDB = new FlightLogDB();
 
-	    @FXML
-	    private TextField name;
-	    
+    List<String> departureCities = flightLogDB.getDepartureCities();
+    List<String> arrivalCities = flightLogDB.getArrivalCities();
+    List<String> dates = flightLogDB.getDates();
 
-public void switchToMyBookings(ActionEvent event) throws IOException {
+    public void switchToMyBookings(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MyBookingPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-	public void switchToLogin(ActionEvent event) throws IOException {
-	        Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
-	        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        scene = new Scene(root);
-	        stage.setScene(scene);
-	        stage.show();
-	    }
-	
-	FlightLogDB flightLogDB = new FlightLogDB();
 
-    List<String> departureCities = flightLogDB.getDepartureCities();
-    List<String> arrivalCities = flightLogDB.getArrivalCities();
-    List<String> dates= flightLogDB.getDates();
-    
+    public void switchToLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
     public void getDepartureCities(ActionEvent event) {
-        String departureCity = FromChoiceBox.getValue();
+        String departureCity = DepartureChoiceBox.getValue();
         from.setText(departureCity);
-        
+
         updateDateChoiceBox(departureCity, DestinationChoiceBox.getValue());
     }
 
@@ -90,7 +85,7 @@ public void switchToMyBookings(ActionEvent event) throws IOException {
         String arrivalCity = DestinationChoiceBox.getValue();
         destination.setText(arrivalCity);
 
-        updateDateChoiceBox(FromChoiceBox.getValue(), arrivalCity);
+        updateDateChoiceBox(DepartureChoiceBox.getValue(), arrivalCity);
     }
 
     @FXML
@@ -100,31 +95,21 @@ public void switchToMyBookings(ActionEvent event) throws IOException {
     }
 
     private void updateDateChoiceBox(String departureCity, String arrivalCity) {
-        
         List<String> filteredDates = flightLogDB.getDatesForCities(departureCity, arrivalCity);
 
-      
         DateChoiceBox.getItems().clear();
         DateChoiceBox.getItems().addAll(filteredDates);
     }
 
-    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        DepartureChoiceBox.getItems().addAll(departureCities);
+        DepartureChoiceBox.setOnAction(this::getDepartureCities);
 
-    public void initialize (URL url, ResourceBundle rb) {
-       
-    	FromChoiceBox.getItems().addAll(departureCities);
-    	FromChoiceBox.setOnAction(this::getDepartureCities);
-    	
-    	DestinationChoiceBox.getItems().addAll(arrivalCities);
-    	DestinationChoiceBox.setOnAction(this::getArrivalCities);
-    	
-    	DateChoiceBox.getItems().addAll(dates);
-    	DateChoiceBox.setOnAction(this::getDates);
-    
-    
-    
-}
-   
-      
-    
+        DestinationChoiceBox.getItems().addAll(arrivalCities);
+        DestinationChoiceBox.setOnAction(this::getArrivalCities);
+
+        DateChoiceBox.getItems().addAll(dates);
+        DateChoiceBox.setOnAction(this::getDates);
+    }
 }
