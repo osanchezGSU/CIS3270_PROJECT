@@ -17,14 +17,14 @@ public class MainApplication extends Application {
        
             FXMLLoader splashLoader = new FXMLLoader(getClass().getResource("Splash_Screen.fxml"));
             Parent splashRoot = splashLoader.load();
-            Scene splashScene = new Scene(splashRoot);
+            Scene splashScene = new Scene(splashRoot, 600, 385);
 
            
             Splash_Screen splashController = splashLoader.getController();
             splashController.initialize();
 
             
-            PauseTransition pause = new PauseTransition(Duration.seconds(2));
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(event -> {
              
                 FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), splashRoot);

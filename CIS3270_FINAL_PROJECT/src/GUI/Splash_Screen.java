@@ -12,7 +12,7 @@ public class Splash_Screen {
 
     public void initialize() {
 
-        String audioFilePath = "airplane_sound.mp3";
+        String audioFilePath = "airplaneSound.mp3";
         Media media = new Media(new File(audioFilePath).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -20,7 +20,7 @@ public class Splash_Screen {
      
         new Thread(() -> {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
 
                 
                 mediaPlayer.stop();
