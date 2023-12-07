@@ -1,1 +1,16 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.mainRoot{
+	-fx-background-color: linear-gradient(to bottom, Blue, LightBlue)
+}
+
+.button{
+	-fx-background-color: linear-gradient(to top right, #09203F, #537895)
+}
+
+.button:hover {
+	-fx-background-color: linear-gradient(to top left, red, blue);
+	
+}
+
+.button:pressed {
+	-fx-background-color: green
+}

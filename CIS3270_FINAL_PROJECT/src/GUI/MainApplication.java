@@ -24,10 +24,10 @@ public class MainApplication extends Application {
             splashController.initialize();
 
             
-            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            PauseTransition pause = new PauseTransition(Duration.seconds(2));
             pause.setOnFinished(event -> {
              
-                FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), splashRoot);
+                FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), splashRoot);
                 fadeOut.setFromValue(1);
                 fadeOut.setToValue(0);
                 fadeOut.setOnFinished(fadeEvent -> {
@@ -36,7 +36,8 @@ public class MainApplication extends Application {
                         FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/GUI/Welcome.fxml"));
                         Parent mainRoot = mainLoader.load();
                         Scene mainScene = new Scene(mainRoot);
-
+                        String css = this.getClass().getResource("application.css").toExternalForm();
+                        mainScene.getStylesheets().add(css);
                        
                         primaryStage.setScene(mainScene);
                         primaryStage.setTitle("Main Application");

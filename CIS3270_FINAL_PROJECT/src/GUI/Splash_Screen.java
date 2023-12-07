@@ -20,7 +20,7 @@ public class Splash_Screen {
      
         new Thread(() -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3000);
 
                 
                 mediaPlayer.stop();

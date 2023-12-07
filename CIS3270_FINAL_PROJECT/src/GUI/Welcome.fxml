@@ -4,19 +4,28 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Scene_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Scene_Controller">
    <children>
-    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0718c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button layoutX="406.0" layoutY="151.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" style="-fx-background-color: #FFFFFF;" text="User" textAlignment="CENTER" underline="true" />
-            <Button layoutX="406.0" layoutY="200.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" style="-fx-background-color: #FFFFFF;" text="Admin" textAlignment="CENTER" underline="true" />
-            <ImageView fitHeight="247.0" fitWidth="292.0" layoutX="31.0" layoutY="78.0">
-               <image>
-                  <Image url="@icon.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <Button layoutX="137.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" prefHeight="42.0" prefWidth="132.0" stylesheets="@application.css" text="User" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font></Button>
+      <Button layoutX="353.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="42.0" prefWidth="123.0" stylesheets="@application.css" text="Admin" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font></Button>
+      <Text layoutY="-106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AeroBookings" wrappingWidth="229.21630859375">
+         <font>
+            <Font name="Bodoni Ornaments" size="13.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="302.0" fitWidth="439.0" layoutX="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/imageedit_28_5003050737.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
