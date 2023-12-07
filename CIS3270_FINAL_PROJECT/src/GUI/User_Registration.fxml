@@ -10,39 +10,29 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Registration">
    <children>
-    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0015cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0015cc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="setFirstName" layoutX="20.0" layoutY="83.0" AnchorPane.leftAnchor="60.0" />
-            <Button layoutX="265.0" layoutY="324.0" mnemonicParsing="false" onAction="#registerButtonAction" text="Submit" />
-            <Label layoutX="124.0" layoutY="12.0" text="New User Registration" textFill="WHITE">
+            <TextField fx:id="setFirstName" layoutX="116.0" layoutY="80.0" promptText="First Name" AnchorPane.leftAnchor="116.0" />
+            <Button layoutX="273.0" layoutY="323.0" mnemonicParsing="false" onAction="#registerButtonAction" text="Submit" />
+            <Label layoutX="115.0" layoutY="15.0" text="New User Registration" textFill="WHITE">
                <font>
                   <Font name="Candara Light" size="40.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="61.0" text="First Name:" textFill="WHITE" AnchorPane.leftAnchor="60.0" />
-            <Label layoutX="19.0" layoutY="113.0" text="Last Name:" textFill="WHITE" AnchorPane.leftAnchor="60.0" />
-            <Label layoutX="11.0" layoutY="169.0" text="Street Address:" textFill="WHITE" AnchorPane.leftAnchor="60.0" />
-            <Label layoutX="23.0" layoutY="221.0" text="Zip Code:" textFill="WHITE" AnchorPane.leftAnchor="60.0" />
-            <Label layoutX="23.0" layoutY="277.0" text="State:" textFill="WHITE" AnchorPane.leftAnchor="60.0" />
-            <Label layoutX="363.0" layoutY="62.0" text="Username:" textFill="WHITE" AnchorPane.leftAnchor="363.0" AnchorPane.rightAnchor="80.0" />
-            <Label layoutX="364.0" layoutY="113.0" text="Password:" textFill="WHITE" AnchorPane.leftAnchor="364.0" AnchorPane.rightAnchor="80.0" />
-            <Label layoutX="362.0" layoutY="221.0" text="Email:" textFill="WHITE" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="80.0" />
-            <Label layoutX="365.0" layoutY="278.0" text="SSN:" textFill="WHITE" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="80.0" />
-            <PasswordField fx:id="setSSN" layoutX="355.0" layoutY="292.0" prefHeight="26.0" prefWidth="155.0" AnchorPane.leftAnchor="355.0" AnchorPane.rightAnchor="90.0" />
-            <PasswordField fx:id="setPassword" layoutX="361.0" layoutY="137.0" AnchorPane.leftAnchor="361.0" AnchorPane.rightAnchor="80.0" />
+            <PasswordField fx:id="setSSN" layoutX="339.0" layoutY="258.0" prefHeight="26.0" prefWidth="149.0" promptText="SSN" AnchorPane.leftAnchor="339.0" AnchorPane.rightAnchor="112.0" />
+            <PasswordField fx:id="setPassword" layoutX="339.0" layoutY="125.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" AnchorPane.leftAnchor="339.0" AnchorPane.rightAnchor="112.0" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Return" />
             <Text fx:id="errorMessage" fill="#e80202" layoutX="193.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="220.21728515625">
                <font>
                   <Font name="System Italic" size="19.0" />
                </font></Text>
-            <PasswordField fx:id="confirmPassword" layoutX="358.0" layoutY="191.0" AnchorPane.rightAnchor="80.0" />
-            <Label layoutX="360.0" layoutY="170.0" prefHeight="17.0" prefWidth="112.0" text="Confirm Password:" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="80.0" />
-            <TextField fx:id="setLastName" layoutX="63.0" layoutY="134.0" />
-            <TextField fx:id="setStreetAddress" layoutX="61.0" layoutY="187.0" />
-            <TextField fx:id="setZipCode" layoutX="64.0" layoutY="242.0" />
-            <TextField fx:id="setState" layoutX="59.0" layoutY="296.0" />
-            <TextField fx:id="setUsername" layoutX="359.0" layoutY="80.0" />
-            <TextField fx:id="setEmail" layoutX="356.0" layoutY="239.0" />
+            <PasswordField fx:id="confirmPassword" layoutX="339.0" layoutY="169.0" promptText="Confirm Password" AnchorPane.rightAnchor="112.0" />
+            <TextField fx:id="setLastName" layoutX="116.0" layoutY="125.0" promptText="Last Name" />
+            <TextField fx:id="setStreetAddress" layoutX="116.0" layoutY="169.0" promptText="Street Address" />
+            <TextField fx:id="setZipCode" layoutX="116.0" layoutY="213.0" promptText="Zip Code" />
+            <TextField fx:id="setState" layoutX="116.0" layoutY="258.0" promptText="State" />
+            <TextField fx:id="setUsername" layoutX="339.0" layoutY="80.0" promptText="Username" />
+            <TextField fx:id="setEmail" layoutX="339.0" layoutY="213.0" promptText="Email" />
          </children>
       </AnchorPane>
    </children>
