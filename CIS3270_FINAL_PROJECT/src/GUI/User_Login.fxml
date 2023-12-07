@@ -11,19 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Login">
    <children>
-<<<<<<< HEAD
     <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-=======
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0718c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
          <children>
             <PasswordField fx:id="passwordPasswordTextField" layoutX="406.0" layoutY="165.0" AnchorPane.rightAnchor="35.0" />
             <TextField fx:id="usernameTextField" layoutX="406.0" layoutY="114.0" AnchorPane.rightAnchor="35.0" />
-<<<<<<< HEAD
-            <Button layoutX="510.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="109.0" stylesheets="@application.css" text="Login" textAlignment="RIGHT" AnchorPane.rightAnchor="35.0" />
-=======
-            <Button layoutX="416.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="149.0" text="Login" textAlignment="RIGHT" AnchorPane.rightAnchor="35.0" />
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
+            <Button layoutX="510.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Login" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="35.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Button>
             <Label layoutX="385.0" layoutY="27.0" text="User Login" textFill="WHITE">
                <font>
                   <Font name="Candara Light" size="40.0" />
@@ -37,32 +32,28 @@
                <font>
                   <Font name="Arial" size="18.0" />
                </font></Label>
-<<<<<<< HEAD
-            <Button layoutX="457.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchToForgotPassword" stylesheets="@application.css" text="Forgot Password" AnchorPane.rightAnchor="35.0" />
-            <ImageView fitHeight="147.0" fitWidth="194.0" layoutY="41.0">
-=======
-            <Button layoutX="416.0" layoutY="234.0" mnemonicParsing="false" onAction="#switchToForgotPassword" prefHeight="25.0" prefWidth="149.0" text="Forgot Password" AnchorPane.rightAnchor="35.0" />
+            <Button layoutX="456.0" layoutY="248.0" mnemonicParsing="false" onAction="#switchToForgotPassword" stylesheets="@application.css" text="Forgot Password" textFill="WHITE" AnchorPane.rightAnchor="35.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Button>
             <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="8.0" layoutY="83.0">
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
                <image>
                   <Image url="@../../../../../Downloads/imageedit_28_5003050737.png" />
                </image>
             </ImageView>
-<<<<<<< HEAD
-            <Button layoutX="449.0" layoutY="278.0" mnemonicParsing="false" onAction="#switchToUserRegistration" prefHeight="26.0" prefWidth="109.0" stylesheets="@application.css" text="Sign Up" AnchorPane.rightAnchor="35.0" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" stylesheets="@application.css" text="Return">
+            <Button layoutX="456.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToUserRegistration" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Sign Up" textFill="WHITE" AnchorPane.rightAnchor="35.0">
                <font>
-                  <Font name="AppleGothic Regular" size="13.0" />
+                  <Font name="Arial Bold" size="16.0" />
                </font></Button>
-=======
-            <Button layoutX="416.0" layoutY="268.0" mnemonicParsing="false" onAction="#switchToUserRegistration" prefHeight="26.0" prefWidth="149.0" text="Sign Up" AnchorPane.rightAnchor="35.0" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Return" />
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" stylesheets="@application.css" text="Return" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Button>
             <TextField fx:id="errorMessage" alignment="CENTER_RIGHT" layoutX="284.0" layoutY="80.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: transparent;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></TextField>
-            <Label layoutX="319.0" layoutY="271.0" prefHeight="21.0" prefWidth="101.0" text="New User?" textFill="WHITE">
+            <Label layoutX="311.0" layoutY="304.0" prefHeight="21.0" prefWidth="101.0" text="New User?:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>

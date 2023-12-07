@@ -1,15 +1,10 @@
 package GUI;
 
-<<<<<<< HEAD
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-=======
-public class User_Home {
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
 
-<<<<<<< HEAD
 import Database.FlightLogDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -118,6 +113,3 @@ public class User_Home implements Initializable {
         DateChoiceBox.setOnAction(this::getDates);
     }
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git

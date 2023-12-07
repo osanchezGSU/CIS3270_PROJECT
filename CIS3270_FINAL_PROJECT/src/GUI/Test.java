@@ -11,11 +11,7 @@ public class Test extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-<<<<<<< HEAD
 			Parent root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
-=======
-			Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
