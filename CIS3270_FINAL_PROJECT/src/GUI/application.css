@@ -1,9 +1,14 @@
 .mainRoot{
 	-fx-background-color: linear-gradient(to bottom, Blue, LightBlue)
 }
+.root{
+	-fx-background-color: linear-gradient(to bottom, Blue, LightBlue)
+}
 
 .button{
-	-fx-background-color: linear-gradient(to top right, #09203F, #537895)
+	-fx-background-color: linear-gradient(to top right, #09203F, #537895);
+	-fx-text-fil: White
+	
 }
 
 .button:hover {
