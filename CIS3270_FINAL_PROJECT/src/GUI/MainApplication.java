@@ -24,10 +24,10 @@ public class MainApplication extends Application {
             splashController.initialize();
 
             
-            PauseTransition pause = new PauseTransition(Duration.seconds(2));
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(event -> {
              
-                FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), splashRoot);
+                FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), splashRoot);
                 fadeOut.setFromValue(1);
                 fadeOut.setToValue(0);
                 fadeOut.setOnFinished(fadeEvent -> {
@@ -40,7 +40,7 @@ public class MainApplication extends Application {
                         mainScene.getStylesheets().add(css);
                        
                         primaryStage.setScene(mainScene);
-                        primaryStage.setTitle("Main Application");
+                        primaryStage.setTitle("AeroBooking.com");
 
                        
                         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), mainRoot);
