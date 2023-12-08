@@ -7,7 +7,6 @@
 
 .button{
 	-fx-background-color: linear-gradient(to top right, #09203F, #537895);
-	-fx-text-fil: White
 	
 }
 
@@ -19,3 +18,16 @@
 .button:pressed {
 	-fx-background-color: green
 }
+
+.textfield {
+	-fx-background-color: transparent;
+	-fx-background-radius: 10px;
+	-fx-border-color: #6a8ff6;
+	-fx-border-width: 2px;
+	-fx-border-radius: 10px;
+	
+}
+.textfield .text:pressed{
+	-fx-effect: dropshadow( two-pass-box, blue, .5, 10, 1, 1);
+	
+	}

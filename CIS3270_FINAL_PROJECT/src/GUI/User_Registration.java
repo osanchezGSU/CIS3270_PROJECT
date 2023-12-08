@@ -65,10 +65,16 @@ public class User_Registration {
 	 @FXML
 	 private Button submitButton;
 	 
-	 
+	 public void switchToSecurityQuestions() throws IOException {
+	        root = FXMLLoader.load(getClass().getResource("SecurityQuestion.fxml"));
+	        stage = (Stage) setFirstName.getScene().getWindow();
+	        scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
+	    }
 	 
 	  public void switchToWelcome(ActionEvent event) throws IOException {
-	        Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
+	        root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
 	        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        scene = new Scene(root);
 	        stage.setScene(scene);
@@ -76,7 +82,7 @@ public class User_Registration {
 	    }
 	  
 	  public void switchToUserHome() throws IOException {
-	        Parent root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
+	        root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
 	        stage = (Stage) setFirstName.getScene().getWindow();
 	        scene = new Scene(root);
 	        stage.setScene(scene);

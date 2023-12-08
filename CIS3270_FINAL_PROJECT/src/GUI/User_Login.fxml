@@ -13,8 +13,8 @@
    <children>
     <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <PasswordField fx:id="passwordPasswordTextField" layoutX="406.0" layoutY="165.0" AnchorPane.rightAnchor="35.0" />
-            <TextField fx:id="usernameTextField" layoutX="406.0" layoutY="114.0" AnchorPane.rightAnchor="35.0" />
+            <PasswordField fx:id="passwordPasswordTextField" layoutX="394.0" layoutY="149.0" promptText="Password" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
+            <TextField fx:id="usernameTextField" layoutX="394.0" layoutY="106.0" promptText="Username" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
             <Button layoutX="510.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Login" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="35.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
@@ -24,14 +24,6 @@
                   <Font name="Candara Light" size="40.0" />
                </font>
             </Label>
-            <Label layoutX="317.0" layoutY="117.0" text="Username:" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font></Label>
-            <Label layoutX="319.0" layoutY="168.0" text="Password:" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font></Label>
             <Button layoutX="456.0" layoutY="248.0" mnemonicParsing="false" onAction="#switchToForgotPassword" stylesheets="@application.css" text="Forgot Password" textFill="WHITE" AnchorPane.rightAnchor="35.0">
                <font>
                   <Font name="Arial Bold" size="16.0" />
