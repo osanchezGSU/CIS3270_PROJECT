@@ -60,6 +60,9 @@ public class User_Login {
         if (usernameTextField.getText().isBlank() == false && passwordPasswordTextField.getText().isBlank() == false) {
             validateLogin();
         } else {
+        	
+       
+        	
             errorMessage.setText("Please enter your username and password.");
         }
     }

@@ -21,6 +21,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+import javafx.animation.Animation;
 
 
 public class User_Registration {
@@ -65,6 +66,17 @@ public class User_Registration {
 	 @FXML
 	 private Button submitButton;
 	 
+	  String errorStyle = String.format("-fx-background-color: transparent;\n"
+		  		+ "	-fx-background-radius: 10px;\n"
+		  		+ "	-fx-border-color: red;\n"
+		  		+ "	-fx-border-width: 2px;\n"
+		  		+ "	-fx-border-radius: 10px;\n");
+	  String defaultStyle = String.format("-fx-background-color: transparent;\n"
+	  		+ "	-fx-background-radius: 10px;\n"
+	  		+ "	-fx-border-color: #6a8ff6;\n"	
+	  		+ "	-fx-border-width: 2px;\n"
+	  		+ "	-fx-border-radius: 10px;\n");
+	
 	 public void switchToSecurityQuestions() throws IOException {
 	        root = FXMLLoader.load(getClass().getResource("SecurityQuestion.fxml"));
 	        stage = (Stage) setFirstName.getScene().getWindow();
@@ -81,28 +93,89 @@ public class User_Registration {
 	        stage.show();
 	    }
 	  
-	  public void switchToUserHome() throws IOException {
-	        root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
-	        stage = (Stage) setFirstName.getScene().getWindow();
-	        scene = new Scene(root);
-	        stage.setScene(scene);
-	        stage.show();
-	    }
-	  
+	  public void ClearButton(Event event) {
+		  TextField[] textFields = {setFirstName, setLastName, setUsername, setPassword, setEmail, setSSN, setStreetAddress, setZipCode, setState, confirmPassword};
+		  for (TextField textField : textFields) {
+			  textField.clear();
+		  }
+		  
+	  }
+	
 	  public void registerButtonAction(Event event) {
-		  if (setPassword.getText().equals(confirmPassword.getText())) {
-			  registerUser();
+		  
+		  resetStyle();
+		  
+		  TextField[] textFields = {setFirstName, setLastName, setUsername, setPassword, setEmail, setSSN, setStreetAddress, setZipCode, setState, confirmPassword};
+	
+		    boolean hasEmptyField = false;
+
+		    for (TextField textField : textFields) {
+		        if (textField.getText().isEmpty()) {
+		            textField.setStyle(errorStyle);
+		            hasEmptyField = true;
+		        }
+		    }
+
+		    if (hasEmptyField) {
+		        errorMessage.setText("Please fill in all fields.");
+		        return;
+		    }	   
+	        if (isUsernameTaken(setUsername.getText())) {
+	        	
+	        	setUsername.setStyle(errorStyle);
+	            errorMessage.setText("Please choose a different Username.");
+	            return;
+	        }
+	        
+	        String ssn = setSSN.getText();
+
+	        if (ssn.length() != 11 || ssn.charAt(3) != '-' || ssn.charAt(6) != '-') {
+	            errorMessage.setText("Invalid SSN");
+	            return;
+	        }
+
+	        for (int i = 0; i < ssn.length(); i++) {
+	            if (i == 3 || i == 6) {
+	                continue;
+	            }
+
+	            if (!Character.isDigit(ssn.charAt(i))) {
+	                errorMessage.setText("Invalid SSN");
+	                return;
+	            }
+	        }
+		    if (setPassword.getText().equals(confirmPassword.getText())) {
 			  Platform.runLater(() -> {
                   try {
-                      switchToUserHome();
+                
+                	  
+                	  registerUser();
+         
+                      switchToSecurityQuestions();
                   } catch (IOException e) {
                       e.printStackTrace();
                   }
               });
           } else {
+        	  setPassword.setStyle(errorStyle);
+        	  confirmPassword.setStyle(errorStyle);
 			  errorMessage.setText("Password does not match");
 			  
 		  }
+		    }
+	  
+	  
+	  public void resetStyle() {
+		  TextField[] textFields = {setFirstName, setLastName, setUsername, setPassword, setEmail, setSSN, setStreetAddress, setZipCode, setState, confirmPassword};
+
+		  for (TextField textField : textFields) {
+			  
+		
+		        if (textField.getText().isEmpty() != true) {
+		            textField.setStyle(defaultStyle);
+		           
+		        }
+		    }
 	  }
 
 	  public void registerUser() {
@@ -119,16 +192,6 @@ public class User_Registration {
 	        String zipcode = setZipCode.getText();
 	        String state = setState.getText();
 
-	        if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty() || ssn.isEmpty() || address.isEmpty() || zipcode.isEmpty() || state.isEmpty()) {
-	            errorMessage.setText("Please fill in all fields.");
-	            return;
-	        }
-
-	   
-	        if (isUsernameTaken(username)) {
-	            errorMessage.setText("Username is already taken. Please choose a different one.");
-	            return;
-	        }
 
 	        String insertToRegister = "INSERT INTO Users(First_Name, Last_Name, Address, Zip_Code, State, Username, Password, Email, SSN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -146,13 +209,7 @@ public class User_Registration {
 
 	            preparedStatement.executeUpdate();
 
-	            Platform.runLater(() -> {
-	                try {
-	                    switchToUserHome();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
-	                }
-	            });
+	            
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	
