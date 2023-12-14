@@ -14,7 +14,7 @@
     <AnchorPane minHeight="365.0" minWidth="600.0" prefHeight="401.0" prefWidth="601.0" stylesheets="@application.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="setFirstName" layoutX="63.0" layoutY="64.0" prefHeight="26.0" prefWidth="173.0" promptText="First Name" styleClass="textfield" stylesheets="@application.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="68.0" />
-            <Button layoutX="324.0" layoutY="324.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="39.0" prefWidth="176.0" text="Submit" textFill="WHITE" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="100.0">
+            <Button layoutX="324.0" layoutY="324.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="39.0" prefWidth="176.0" text="Next" textFill="WHITE" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="100.0">
                <font>
                   <Font name="Arial Bold" size="21.0" />
                </font></Button>

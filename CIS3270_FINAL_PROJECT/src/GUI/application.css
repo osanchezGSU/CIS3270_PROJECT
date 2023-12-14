@@ -26,6 +26,7 @@
 	-fx-border-width: 2px;
 	-fx-border-radius: 10px;
 	-fx-prompt-text-fill: White;
+	-fx-text-fill: White;
 	
 }
 .textfield .text:pressed{

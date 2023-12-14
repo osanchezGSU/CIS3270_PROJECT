@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Login">
    <children>
@@ -41,15 +42,16 @@
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font></Button>
-            <TextField fx:id="errorMessage" alignment="CENTER_RIGHT" layoutX="284.0" layoutY="80.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: transparent;">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font></TextField>
             <Label layoutX="311.0" layoutY="304.0" prefHeight="21.0" prefWidth="101.0" text="New User?:" textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
+            <Text fx:id="errorMessage" fill="RED" layoutX="300.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="269.21630859375" AnchorPane.topAnchor="76.0">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

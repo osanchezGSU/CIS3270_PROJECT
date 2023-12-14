@@ -20,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
@@ -35,7 +36,7 @@ public class User_Login {
     private PasswordField passwordPasswordTextField;
 
     @FXML
-    private TextField errorMessage;
+    private Text errorMessage;
 
     @FXML
     private Button submitButton;
@@ -63,7 +64,7 @@ public class User_Login {
         	
        
         	
-            errorMessage.setText("Please enter your username and password.");
+            errorMessage.setText("Please enter your username and password");
         }
     }
 

@@ -6,20 +6,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SecurityQuestions">
    <children>
-      <Label layoutX="144.0" layoutY="14.0" prefHeight="75.0" prefWidth="312.0" text="Security Questions" textFill="WHITE">
+      <Label layoutX="144.0" layoutY="14.0" prefHeight="75.0" prefWidth="312.0" text="Security Questions" textFill="WHITE" AnchorPane.topAnchor="4.0">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <ComboBox fx:id="question1" layoutX="117.0" layoutY="89.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 1*" stylesheets="@application.css" />
-      <TextField fx:id="answer1" layoutX="109.0" layoutY="130.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer 18" styleClass="textfield" stylesheets="@application.css" />
-      <ComboBox fx:id="question2" layoutX="116.0" layoutY="174.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 1*" />
-      <TextField fx:id="answer2" layoutX="117.0" layoutY="219.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer 18" styleClass="textfield" />
-      <ComboBox fx:id="question3" layoutX="116.0" layoutY="261.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 1*" />
-      <TextField fx:id="answer3" layoutX="117.0" layoutY="299.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer 18" styleClass="textfield" />
+      <ComboBox fx:id="question1" layoutX="117.0" layoutY="89.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 1" stylesheets="@application.css" />
+      <TextField fx:id="answer1" layoutX="109.0" layoutY="130.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer" styleClass="textfield" stylesheets="@application.css" />
+      <ComboBox fx:id="question2" layoutX="116.0" layoutY="174.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 2" />
+      <TextField fx:id="answer2" layoutX="117.0" layoutY="219.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer" styleClass="textfield" />
       <Button fx:id="submitButton" layoutX="218.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToUserHome" prefHeight="37.0" prefWidth="143.0" text="Submit" textFill="WHITE" />
+      <Text fx:id="errorMessage" fill="RED" layoutX="209.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="160.21630859375" />
    </children>
 </AnchorPane>
