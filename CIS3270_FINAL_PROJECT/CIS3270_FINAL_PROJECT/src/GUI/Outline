@@ -1,0 +1,48 @@
+Page 1... Splash Screen
+
+Page 2... Main Menu
+- Admin Login (Page 2)
+- User Login (Page 3)
+
+Page 3... User Login
+- Enter:
+Username
+Password
+- Click:
+Forgot Password
+Sign Up New User (Page 4)
+Submit (Page 5)
+
+Page 4... Admin Login
+- Enter:
+Username
+Password
+- Click:
+Forgot Password
+Submit (Page 7)
+
+Page 5... User Registration
+- Enter:
+First Name
+Last Name
+Address
+Zip
+State
+Username
+Password
+Email
+SSN
+Security Question
+
+Page 6... User Home
+- Go To Search Engine
+- Go To Orders To Delete
+- Go To Logout
+
+Page 7... Admin Home
+- Go To Search Engine
+- Go To Orders To Delete
+- Go To Logout
+- Add Flights
+- Update Flights
+- Remove Flights

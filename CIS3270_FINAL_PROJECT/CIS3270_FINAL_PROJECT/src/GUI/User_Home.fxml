@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User_Home">
+   <children>
+      <BorderPane layoutX="3.0" layoutY="6.0" prefHeight="386.0" prefWidth="585.0" style="-fx-background-color: #0015cc;">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="101.0" prefWidth="96.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="Home" textFill="#dd0c0c">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button id="logOutButton" fx:id="LogOutButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="123.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: Black;" text="LogOut" textFill="#eb0f0f">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Button>
+                  <Button fx:id="MyBookingButton" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="106.0" prefWidth="95.0" style="-fx-background-color: #0015cc; -fx-border-color: black;" text="My Account" textFill="#e40c0c" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="387.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text layoutX="19.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" wrappingWidth="94.60321044921875">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="7.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination:" wrappingWidth="119.22894287109375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="13.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="119.22894287109375">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane layoutX="218.0" layoutY="7.0" prefHeight="208.0" prefWidth="259.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text layoutX="8.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" wrappingWidth="94.60321044921875" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="94.60321044921875" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="9.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination:" wrappingWidth="119.22894287109375" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="119.22894287109375" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="bookButton" layoutX="79.0" layoutY="162.0" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: red;" text="Book!">
+                           <font>
+                              <Font name="System Bold Italic" size="16.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="84.0" layoutY="49.0" prefHeight="14.0" prefWidth="140.0" style="-fx-background-color: transparent;" />
+                        <Label fx:id="from" layoutX="104.0" layoutY="37.0" prefHeight="23.0" prefWidth="142.0" />
+                        <Label fx:id="destination" layoutX="117.0" layoutY="63.0" prefHeight="23.0" prefWidth="142.0" />
+                        <TextField layoutX="95.0" layoutY="6.0" text="aa" />
+                        <Label fx:id="date" layoutX="104.0" layoutY="93.0" prefHeight="23.0" prefWidth="142.0" />
+                     </children>
+                  </AnchorPane>
+                 <ChoiceBox fx:id="DepartureChoiceBox" layoutX="10.0" layoutY="39.0" prefHeight="26.0" prefWidth="164.0" />
+                  <ChoiceBox fx:id="DestinationChoiceBox" layoutX="6.0" layoutY="97.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="DateChoiceBox" layoutX="7.0" layoutY="159.0" prefWidth="150.0" />
+                  <Text fx:id="message" fill="#e40808" layoutX="63.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="359.21630859375">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
