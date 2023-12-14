@@ -2,6 +2,8 @@ package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDBTEST {
@@ -24,6 +26,16 @@ public class UserDBTEST {
 		
 		return databaseLink;
 	}
+	
+	public void getUsername() {
+		
+		UserDBTEST connectNow = new UserDBTEST();
+        Connection connectDB = connectNow.getConnection();
+        String query = "SELECT Username FROM Users WHERE Username = ";
+		
+		
+	}
 }
+
 	
 	

@@ -66,6 +66,14 @@ public class User_Registration {
 	 @FXML
 	 private Button submitButton;
 	 
+
+	 
+	 private String username;
+
+	 public void setUsername(String username) {
+		 this.username = username;
+	 }
+	 
 	  String errorStyle = String.format("-fx-background-color: transparent;\n"
 		  		+ "	-fx-background-radius: 10px;\n"
 		  		+ "	-fx-border-color: red;\n"
@@ -77,8 +85,17 @@ public class User_Registration {
 	  		+ "	-fx-border-width: 2px;\n"
 	  		+ "	-fx-border-radius: 10px;\n");
 	
-	 public void switchToSecurityQuestions() throws IOException {
-	        root = FXMLLoader.load(getClass().getResource("SecurityQuestion.fxml"));
+	  public void switchToSecurityQuestions() throws IOException {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("SecurityQuestion.fxml"));
+	        Parent root = loader.load();
+
+	        // Retrieve the controller instance
+	        SecurityQuestions securityQuestionsController = loader.getController();
+
+	        // Pass the username parameter
+	        securityQuestionsController.setUsername(username);
+	        System.out.println("Switching to SecurityQuestions with username: " + username);
+	        // Switch to the scene
 	        stage = (Stage) setFirstName.getScene().getWindow();
 	        scene = new Scene(root);
 	        stage.setScene(scene);
@@ -150,6 +167,8 @@ public class User_Registration {
                 
                 	  
                 	  registerUser();
+                	  
+                	  setUsername(setUsername.getText());
          
                       switchToSecurityQuestions();
                   } catch (IOException e) {
@@ -177,8 +196,12 @@ public class User_Registration {
 		        }
 		    }
 	  }
+	  
 
 	  public void registerUser() {
+		  
+		 
+	        
 	        UserDBTEST connectNow = new UserDBTEST();
 	        Connection connectDB = connectNow.getConnection();
 
@@ -191,7 +214,8 @@ public class User_Registration {
 	        String address = setStreetAddress.getText();
 	        String zipcode = setZipCode.getText();
 	        String state = setState.getText();
-
+	        
+	       
 
 	        String insertToRegister = "INSERT INTO Users(First_Name, Last_Name, Address, Zip_Code, State, Username, Password, Email, SSN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 

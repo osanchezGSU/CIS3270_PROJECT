@@ -50,98 +50,94 @@ public class SecurityQuestions implements Initializable {
 	@FXML
     private Button submitButton;
 	
-	 @FXML
-	 private Text errorMessage;
+	@FXML
+	private Text errorMessage;
+	 
+	private String username;
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	
-	    private String[] questions = {
-	            "In what city were you born?",
-	            "What is your mother's maiden name?",
-	            "What was the name of your elementary school?",
-	            "What is the name of your first pet?",
-	            "What year did you graduate High School?"
-	    };
+	private String[] questions = {
+			"In what city were you born?",
+			"What is your mother's maiden name?",
+			"What was the name of your elementary school?",
+			"What is the name of your first pet?",
+			"What year did you graduate High School?"
+	};
 
-	    @Override
-	    public void initialize(URL url, ResourceBundle rb) {
-	        question1.getItems().addAll(questions);
-	        question2.getItems().addAll(questions);
-
-	        // Add listeners to handle changes in ComboBox values
-	        question1.valueProperty().addListener((observable, oldValue, newValue) -> {
-	            if (newValue != null) {
-	                removeSelectedQuestion(newValue);
-	                updateOtherComboBoxes();	     
-	            }
-	        });
-	        
-
-			HashMap<String, String> QandA = new HashMap<String, String>();
-
-			QandA.put(question1.getValue(), answer1.getText());
-			QandA.put(question2.getValue(), answer2.getText());
-	        
-		
-	       
-	        
-	        
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		question1.getItems().addAll(questions);
+		question2.getItems().addAll(questions);
+		 
+		// Add listeners to handle changes in ComboBox values
+		question1.valueProperty().addListener((observable, oldValue, newValue) -> {
+			if (newValue != null) {
+				removeSelectedQuestion(newValue);
+				updateOtherComboBoxes();	     
+			}
+		});      
 	    
-	    }
+	}
 
-	    private void removeSelectedQuestion(String selectedQuestion) {
-	        int indexToRemove = -1;
-	        for (int question = 0; question < questions.length; question++) {
-	            if (questions[question].equals(selectedQuestion)) {
-	                indexToRemove = question;
-	                break;
-	            }
-	        }
+	private void removeSelectedQuestion(String selectedQuestion) {
+		int indexToRemove = -1;
+		for (int question = 0; question < questions.length; question++) {
+			if (questions[question].equals(selectedQuestion)) {
+				indexToRemove = question;
+				break;
+			}
+		}
 
-	        // If the selected question is found, remove it from the array
-	        if (indexToRemove != -1) {
-	            questions[indexToRemove] = null;
-	        }
-	    }
+		// If the selected question is found, remove it from the array
+		if (indexToRemove != -1) {
+			questions[indexToRemove] = null;
+		}
+	}
 
-	    private void updateOtherComboBoxes() {
-	        String selectedQuestion1 = question1.getValue();
-	        String selectedQuestion2 = question2.getValue();
+	private void updateOtherComboBoxes() {
+		String selectedQuestion1 = question1.getValue();
+		String selectedQuestion2 = question2.getValue();
 
-	        List<String> excludedQuestions = new ArrayList<>();
-	        if (selectedQuestion1 != null) {
-	            excludedQuestions.add(selectedQuestion1);
-	        }
-	        if (selectedQuestion2 != null) {
-	            excludedQuestions.add(selectedQuestion2);
-	        }
+		List<String> excludedQuestions = new ArrayList<>();
+		if (selectedQuestion1 != null) {
+			excludedQuestions.add(selectedQuestion1);
+		}
+		if (selectedQuestion2 != null) {
+			excludedQuestions.add(selectedQuestion2);
+		}
 
-	        // Create a new ObservableList from the updated questions array excluding selected questions
-	        question2.setItems(createObservableListFromQuestions(excludedQuestions));
-	       }
+		// Create a new ObservableList from the updated questions array excluding selected questions
+		question2.setItems(createObservableListFromQuestions(excludedQuestions));
+	}
 
-	    private ObservableList<String> createObservableListFromQuestions(List<String> exclusions) {
-	        List<String> nonNullQuestions = new ArrayList<>();
+	private ObservableList<String> createObservableListFromQuestions(List<String> exclusions) {
+		List<String> nonNullQuestions = new ArrayList<>();
 
-	        for (String question : questions) {
-	            if (question != null && !exclusions.contains(question)) {
-	                nonNullQuestions.add(question);
-	            }
-	        }
+		for (String question : questions) {
+			if (question != null && !exclusions.contains(question)) {
+				nonNullQuestions.add(question);
+			}
+		}
 
-	        return FXCollections.observableArrayList(nonNullQuestions);
-	    }
+		return FXCollections.observableArrayList(nonNullQuestions);
+	}
 	public void switchToUserHome() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
-        Stage stage = (Stage) answer1.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+		Parent root = FXMLLoader.load(getClass().getResource("User_Home.fxml"));
+		Stage stage = (Stage) answer1.getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	
 	public void registerButtonAction(Event event) throws Exception{
 		registerUserQA();
 		switchToUserHome();
 	
-	    }
+	}
 
 	@FXML
 	public void getQuestions(ActionEvent event) {
@@ -156,11 +152,15 @@ public class SecurityQuestions implements Initializable {
 	
 	}
 	
+	
 	public void registerUserQA() {
         UserDBTEST connectNow = new UserDBTEST();
         Connection connectDB = connectNow.getConnection();
         
-        String insertToRegister = "INSERT INTO UserSecurityQuestions (question1, question2, answer1, answer2) VALUES (?, ?, ?, ?)";
+       
+
+        
+        String insertToRegister = "INSERT INTO UserSecurityQuestions (username, question1, question2, answer1, answer2) VALUES (?, ?, ?, ?, ?)";
         
     	String userQuestion1 = question1.getValue();
     	String userQuestion2 = question2.getValue();
@@ -169,14 +169,19 @@ public class SecurityQuestions implements Initializable {
     	String userAnswer1 = answer1.getText();
     	String userAnswer2 = answer2.getText();
    
+    	
 
         try {
+        
+        	
             PreparedStatement preparedStatement = connectDB.prepareStatement(insertToRegister);
-            preparedStatement.setString(1, userQuestion1);
-            preparedStatement.setString(2, userQuestion2);
+            
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, userQuestion1);
+            preparedStatement.setString(3, userQuestion2);
            
-            preparedStatement.setString(3, userAnswer1);
-            preparedStatement.setString(4, userAnswer2);
+            preparedStatement.setString(4, userAnswer1);
+            preparedStatement.setString(5, userAnswer2);
            
      
 
@@ -188,6 +193,8 @@ public class SecurityQuestions implements Initializable {
 
         }
     }
+
+	
 
 	
 }
