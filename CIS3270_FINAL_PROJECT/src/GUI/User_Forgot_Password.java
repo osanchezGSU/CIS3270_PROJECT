@@ -1,10 +1,6 @@
 package GUI;
 
-<<<<<<< HEAD
-public class User_Forgot_Password {
 
-}
-=======
 import Database.UserDBTEST;
 import java.io.IOException;
 import java.sql.Connection;
@@ -26,19 +22,11 @@ import javafx.stage.Stage;
 
 public class User_Forgot_Password{
 
-    @FXML
+    
     private TextField ssnTextField;
-
-    @FXML
     private Label passwordTextArea;
-
-    @FXML
     private TextField errorMessage;
-
-    @FXML
     private Button retrievePasswordButton;
-
-    @FXML
     private PasswordField passwordField;
 
     public void switchToUserLogin(ActionEvent event) throws IOException {
@@ -76,24 +64,20 @@ public class User_Forgot_Password{
             } else {
                 Platform.runLater(() -> {
                     errorMessage.setText("No matching SSN found or error in database query.");
-                    passwordTextArea.setText(""); // Clear the password area
+                    passwordTextArea.setText(""); 
                 });
             }
             
-            connectDB.close(); // Closing database connection using Connection object
+            connectDB.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-
-    @FXML
     public void passwordField() {
         passwordField.setText("Some text");
     }
-
-    @FXML
     public void initialize() {
-        // Initialize other components if needed
+  
     }
 }
 
@@ -102,7 +86,3 @@ public class User_Forgot_Password{
 
 
 
-
-
-
->>>>>>> 56eb613e8901e43e7067db48fc4755feea92bc64

@@ -31,9 +31,9 @@ public class Main {
 	public static Connection getConnection() throws Exception{
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/Demo";
+			String url = "jdbc:mysql://localhost:3306/AeroBookings";
 			String username = "root";
-			String password = "1234"
+			String password = "root"
 ;
 			Class.forName(driver);
 			
