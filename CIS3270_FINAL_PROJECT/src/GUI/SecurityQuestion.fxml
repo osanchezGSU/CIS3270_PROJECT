@@ -19,7 +19,7 @@
       <TextField fx:id="answer1" layoutX="109.0" layoutY="130.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer" styleClass="textfield" stylesheets="@application.css" />
       <ComboBox fx:id="question2" layoutX="116.0" layoutY="174.0" prefHeight="22.0" prefWidth="366.0" promptText="Security Question 2" />
       <TextField fx:id="answer2" layoutX="117.0" layoutY="219.0" prefHeight="26.0" prefWidth="380.0" promptText="Answer" styleClass="textfield" />
-      <Button fx:id="submitButton" layoutX="218.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToUserHome" prefHeight="37.0" prefWidth="143.0" text="Submit" textFill="WHITE" />
+      <Button fx:id="submitButton" layoutX="218.0" layoutY="343.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="37.0" prefWidth="143.0" text="Submit" textFill="WHITE" />
       <Text fx:id="errorMessage" fill="RED" layoutX="209.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="160.21630859375" />
    </children>
 </AnchorPane>

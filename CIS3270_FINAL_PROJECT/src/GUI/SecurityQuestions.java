@@ -80,7 +80,7 @@ public class SecurityQuestions implements Initializable {
 			QandA.put(question1.getValue(), answer1.getText());
 			QandA.put(question2.getValue(), answer2.getText());
 	        
-			registerUserQA();
+		
 	       
 	        
 	        
@@ -138,7 +138,8 @@ public class SecurityQuestions implements Initializable {
     }
 	
 	public void registerButtonAction(Event event) throws Exception{
-		
+		registerUserQA();
+		switchToUserHome();
 	
 	    }
 
