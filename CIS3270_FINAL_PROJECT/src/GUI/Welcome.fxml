@@ -24,7 +24,7 @@
       </Text>
       <ImageView fitHeight="302.0" fitWidth="439.0" layoutX="99.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/imageedit_28_5003050737.png" />
+            <Image url="@imageedit_28_5003050737.png" />
          </image>
       </ImageView>
    </children>

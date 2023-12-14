@@ -31,7 +31,7 @@
                </font></Button>
             <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="8.0" layoutY="83.0">
                <image>
-                  <Image url="@../../../../../Downloads/imageedit_28_5003050737.png" />
+                  <Image url="@imageedit_28_5003050737.png" />
                </image>
             </ImageView>
             <Button layoutX="456.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToUserRegistration" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Sign Up" textFill="WHITE" AnchorPane.rightAnchor="35.0">
