@@ -4,24 +4,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Scene_Controller">
    <children>
-    <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0718c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" />
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
          <children>
-            <PasswordField layoutX="226.0" layoutY="199.0" />
-            <TextField layoutX="226.0" layoutY="121.0" />
-            <Button layoutX="273.0" layoutY="253.0" mnemonicParsing="false" text="Submit" />
-            <Label layoutX="196.0" layoutY="43.0" text="Admin Login" textFill="WHITE">
+            <PasswordField fx:id="passwordPasswordTextField" layoutX="376.0" layoutY="205.0" promptText="Password" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="71.0" />
+            <TextField fx:id="usernameTextField" layoutX="376.0" layoutY="145.0" promptText="Username" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="71.0" />
+            <Button layoutX="377.0" layoutY="272.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Login" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="71.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="348.0" layoutY="53.0" text="Admin Login" textFill="WHITE">
                <font>
                   <Font name="Candara Light" size="40.0" />
                </font>
             </Label>
-            <Label layoutX="272.0" layoutY="104.0" text="Username:" textFill="WHITE" />
-            <Label layoutX="275.0" layoutY="182.0" text="Password:" textFill="WHITE" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Return" />
+            <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="46.0" layoutY="96.0">
+               <image>
+                  <Image url="@imageedit_28_5003050737.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToWelcome" stylesheets="@application.css" text="Return" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
