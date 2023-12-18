@@ -12,11 +12,28 @@
       <Button layoutX="137.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" prefHeight="42.0" prefWidth="132.0" stylesheets="@application.css" text="User" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="21.0" />
-         </font></Button>
+         </font>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/icons8-users-30.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Button layoutX="353.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="42.0" prefWidth="123.0" stylesheets="@application.css" text="Admin" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="21.0" />
-         </font></Button>
+         </font>
+         <graphic>
+           
+         </graphic>
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/icons8-admin-90.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Text layoutY="-106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AeroBookings" wrappingWidth="229.21630859375">
          <font>
             <Font name="Bodoni Ornaments" size="13.0" />

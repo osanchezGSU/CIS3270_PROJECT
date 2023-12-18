@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -14,7 +16,7 @@
     <AnchorPane minHeight="365.0" minWidth="600.0" prefHeight="401.0" prefWidth="601.0" stylesheets="@application.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="setFirstName" layoutX="63.0" layoutY="64.0" prefHeight="26.0" prefWidth="173.0" promptText="First Name" styleClass="textfield" stylesheets="@application.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="68.0" />
-            <Button layoutX="324.0" layoutY="324.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="39.0" prefWidth="176.0" text="Next" textFill="WHITE" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="100.0">
+            <Button layoutX="324.0" layoutY="324.0" mnemonicParsing="false" onAction="#registerButtonAction" prefHeight="39.0" prefWidth="176.0" text="Next" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="100.0">
                <font>
                   <Font name="Arial Bold" size="21.0" />
                </font></Button>
@@ -25,11 +27,18 @@
             </Label>
             <PasswordField fx:id="setSSN" layoutX="343.0" layoutY="206.0" prefHeight="26.0" prefWidth="173.0" promptText="SSN" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="196.0" />
             <PasswordField fx:id="setPassword" layoutX="62.0" layoutY="154.0" prefHeight="26.0" prefWidth="173.0" promptText="Password" styleClass="textfield" stylesheets="@application.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="154.0" />
-            <Button layoutX="17.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Return" textFill="WHITE">
+            <Button layoutX="17.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="21.0" prefWidth="28.0" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font size="14.0" />
-               </font></Button>
-            <Text fx:id="errorMessage" fill="#e80202" layoutX="164.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="273.21728515625" AnchorPane.bottomAnchor="10.0">
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/icons8-return-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Text fx:id="errorMessage" fill="#e80202" layoutX="88.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="424.21728515625" AnchorPane.bottomAnchor="10.0">
                <font>
                   <Font name="System Italic" size="19.0" />
                </font></Text>
