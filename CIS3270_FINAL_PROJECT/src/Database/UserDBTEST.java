@@ -2,9 +2,13 @@ package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+=======
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
 
 public class UserDBTEST {
 	
