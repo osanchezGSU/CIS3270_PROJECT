@@ -40,7 +40,7 @@ public class MainApplication extends Application {
                         mainScene.getStylesheets().add(css);
                        
                         primaryStage.setScene(mainScene);
-                        primaryStage.setTitle("AeroBooking.com");
+                        primaryStage.setTitle("AeroBookings.com");
 
                        
                         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), mainRoot);

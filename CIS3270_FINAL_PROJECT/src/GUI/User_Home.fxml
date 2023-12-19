@@ -113,7 +113,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <TextField fx:id="FromSearchField" layoutX="25.0" layoutY="85.0" promptText="From" stylesheets="@application.css" />
+      <TextField id="FromTextField" fx:id="FromSearchField" layoutX="25.0" layoutY="85.0" promptText="From" stylesheets="@application.css" />
       <TextField layoutX="208.0" layoutY="85.0" promptText="To" />
       <ComboBox layoutX="29.0" layoutY="118.0" prefWidth="150.0" promptText="# of Passengers" />
       <DatePicker layoutX="198.0" layoutY="117.0" />

@@ -89,9 +89,4 @@
     -fx-padding: 0;
 }
 
-#FromSearchField {
-    -fx-background-image: url('/Users/osvaldosanchez/Downloads/icons8-location.gif');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: right center;
-}
 

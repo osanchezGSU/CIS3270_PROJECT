@@ -16,13 +16,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 public class User_Home implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    @FXML
+    private TextField FromSearchField;
+    
     @FXML
     private ChoiceBox<String> DestinationChoiceBox;
     
@@ -103,6 +108,8 @@ public class User_Home implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    	TextFields.bindAutoCompletion(FromSearchField, departureCities );
+    	
         DepartureChoiceBox.getItems().addAll(departureCities);
         DepartureChoiceBox.setOnAction(this::getDepartureCities);
 
