@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
-public class User_Login {
+public class Admin_Login {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -58,10 +58,10 @@ public class User_Login {
     }
 
     public void loginButtonOnAction(ActionEvent e) {
+    
         if (usernameTextField.getText().isBlank() == false && passwordPasswordTextField.getText().isBlank() == false) {
             validateLogin();
-        } else {
-        	
+        } else {    	
        
         	
             errorMessage.setText("Please enter your username and password");
@@ -79,7 +79,7 @@ public class User_Login {
 
 
     public void validateLogin() {
-        UserDBTEST connectNow = new UserDBTEST();
+        AdminDB connectNow = new AdminDB();
         Connection connectDB = connectNow.getConnection();
 
         String verifyLogin = "SELECT count(1) FROM Users WHERE username = '"
