@@ -58,7 +58,7 @@
 }
 #MyAccountButton:hover {
 	-fx-text-fill: red ;
-	-fx-underline: red;	
+	
 }
 
 .combo-box .list-cell {

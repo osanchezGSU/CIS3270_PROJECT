@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.controlsfx.control.SearchableComboBox;
+
 import Database.FlightLogDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +20,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
+//import org.controlsfx.control.textfield.TextFields;
+//import org.controlsfx.control.textfield.AutoCompletionBinding;
 
 public class User_Home implements Initializable {
     private Stage stage;
@@ -29,13 +32,16 @@ public class User_Home implements Initializable {
     private TextField FromSearchField;
     
     @FXML
+    private SearchableComboBox<String> DepartureChoiceBox;
+    
+    @FXML
     private ChoiceBox<String> DestinationChoiceBox;
     
     @FXML
     private ChoiceBox<String> DateChoiceBox;
 
-    @FXML
-    private ChoiceBox<String> DepartureChoiceBox;
+    //@FXML
+    //private ChoiceBox<String> DepartureChoiceBox;
 
     @FXML
     private Button LogOutButton;
@@ -108,7 +114,7 @@ public class User_Home implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	TextFields.bindAutoCompletion(FromSearchField, departureCities );
+    	//TextFields.bindAutoCompletion(FromSearchField, departureCities);
     	
         DepartureChoiceBox.getItems().addAll(departureCities);
         DepartureChoiceBox.setOnAction(this::getDepartureCities);
