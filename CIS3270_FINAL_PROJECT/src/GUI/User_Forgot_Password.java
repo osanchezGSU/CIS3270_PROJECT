@@ -41,10 +41,13 @@ public class User_Forgot_Password {
     private Label errorMessageAnswer;
 
     @FXML
-    private Label passwordTextArea;
+    private Label passwordLabel;
 
     @FXML
     private Button retrievePasswordButton;
+
+    @FXML
+    private Button showPasswordButton;
 
     @FXML
     public void switchToUserLogin(ActionEvent event) throws IOException {
@@ -60,8 +63,11 @@ public class User_Forgot_Password {
         // Clear error messages initially
         clearErrorMessages();
 
-        // Initialize security questions ComboBox (initially empty)
-        securityQuestionsComboBox.setItems(FXCollections.observableArrayList());
+        // Hide security questions ComboBox, answer text field, and password label initially
+        securityQuestionsComboBox.setVisible(false);
+        answerTextField.setVisible(false);
+        passwordLabel.setVisible(false);
+        showPasswordButton.setVisible(false);
     }
 
     @FXML
@@ -78,15 +84,15 @@ public class User_Forgot_Password {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
 
-            String getUsernameInfo = "SELECT userQuestion1, userQuestion2, userAnswer1, userAnswer2, password FROM SecurityQuestions WHERE username = ?";
+            String getUsernameInfo = "SELECT question1, question2 FROM UserSecurityQuestions WHERE username = ?";
             PreparedStatement preparedStatement = connectDB.prepareStatement(getUsernameInfo);
             preparedStatement.setString(1, username);
 
             ResultSet queryResult = preparedStatement.executeQuery();
 
             if (queryResult.next()) {
-                String question1 = queryResult.getString("userQuestion1");
-                String question2 = queryResult.getString("userQuestion2");
+                String question1 = queryResult.getString("question1");
+                String question2 = queryResult.getString("question2");
 
                 ObservableList<String> securityQuestions = FXCollections.observableArrayList(question1, question2);
                 securityQuestionsComboBox.setItems(securityQuestions);
@@ -94,6 +100,7 @@ public class User_Forgot_Password {
                 // Show security questions ComboBox and answer text field
                 securityQuestionsComboBox.setVisible(true);
                 answerTextField.setVisible(true);
+                showPasswordButton.setVisible(true);
             } else {
                 errorMessageUsername.setText("The username does not exist.");
             }
@@ -104,11 +111,61 @@ public class User_Forgot_Password {
         }
     }
 
+    @FXML
+    public void checkAnswer(ActionEvent e) {
+        clearErrorMessages();
+
+        String selectedQuestion = securityQuestionsComboBox.getValue();
+        String enteredAnswer = answerTextField.getText();
+
+        if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
+            errorMessageAnswer.setText("Please select a security question and enter the answer.");
+            return;
+        }
+
+        try {
+            UserDBTEST userDB = new UserDBTEST();
+            Connection connectDB = userDB.getConnection();
+
+            String getSecurityInfo = "SELECT answer1, answer2 FROM UserSecurityQuestions WHERE username = ?";
+            PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
+            preparedStatement.setString(1, usernameTextField.getText());
+
+            ResultSet queryResult = preparedStatement.executeQuery();
+
+            if (queryResult.next()) {
+                String storedAnswer1 = queryResult.getString("answer1");
+                String storedAnswer2 = queryResult.getString("answer2");
+
+                if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
+                        || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
+                    // Display the password or perform other actions
+                    passwordLabel.setText("Your password is: *****");
+                    passwordLabel.setVisible(true);
+                } else {
+                    errorMessageAnswer.setText("The answer is incorrect.");
+                }
+            }
+
+            connectDB.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void showPassword(ActionEvent e) {
+        // You may add additional functionality here if needed
+    }
+
     private void clearErrorMessages() {
         errorMessageUsername.setText("");
         errorMessageSecurity.setText("");
         errorMessageAnswer.setText("");
     }
 }
+
+
+
 
 
