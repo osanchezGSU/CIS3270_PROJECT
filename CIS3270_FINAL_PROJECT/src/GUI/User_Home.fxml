@@ -86,12 +86,12 @@
          <children>
             <ImageView fitHeight="79.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Downloads/imageedit_28_5003050737-3.png" />
+                  <Image url="@imageedit_28_5003050737-3.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="154.0" layoutX="77.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Downloads/imageedit_28_5003050737-4.png" />
+                  <Image url="@imageedit_28_5003050737-4.png" />
                </image>
             </ImageView>
             <HBox layoutX="239.0" layoutY="1.0" prefHeight="79.0" prefWidth="355.0" spacing="5.0">
