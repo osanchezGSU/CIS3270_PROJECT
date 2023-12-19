@@ -39,6 +39,8 @@
 }
 #HomeButton:hover {
 	-fx-text-fill: red ;
+	-fx-border-bottom-color: white;
+	
 	
 }
 #LogButton {
@@ -47,6 +49,7 @@
 }
 #LogButton:hover {
 	-fx-text-fill: red ;
+	-fx-border-bottom-color: white;
 	
 }
 #MyAccountButton {
@@ -55,7 +58,7 @@
 }
 #MyAccountButton:hover {
 	-fx-text-fill: red ;
-	
+	-fx-underline: red;	
 }
 
 .combo-box .list-cell {
@@ -85,3 +88,10 @@
     -fx-background-color: #979A9A;
     -fx-padding: 0;
 }
+
+#FromSearchField {
+    -fx-background-image: url('/Users/osvaldosanchez/Downloads/icons8-location.gif');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+}
+
