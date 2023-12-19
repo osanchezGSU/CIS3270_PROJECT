@@ -33,3 +33,60 @@
 	-fx-effect: dropshadow( two-pass-box, blue, .5, 10, 1, 1);
 	
 	}
+#HomeButton {
+	-fx-text-fill: white ;
+	
+}
+#HomeButton:hover {
+	-fx-text-fill: red ;
+	-fx-border-bottom-color: white;
+	
+	
+}
+#LogButton {
+	-fx-text-fill: white ;
+	
+}
+#LogButton:hover {
+	-fx-text-fill: red ;
+	-fx-border-bottom-color: white;
+	
+}
+#MyAccountButton {
+	-fx-text-fill: white ;
+	
+}
+#MyAccountButton:hover {
+	-fx-text-fill: red ;
+	-fx-underline: red;	
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+}
+.combo-box-popup .list-view{
+    -fx-background-color: #6a8ff6;
+}
+
+.combo-box-popup .list-view .list-cell{
+    -fx-text-fill: White;
+    -fx-padding: 4 0 4 5;
+    -fx-background-color: #979A9A;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover{
+    -fx-background-color: white;
+    -fx-text-fill: blue;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover{
+    -fx-background-color: #6a8ff6;
+    -fx-text-fill: black;
+}
+
+.combo-box-base{
+    -fx-background-color: #979A9A;
+    -fx-padding: 0;
+}
+
+
