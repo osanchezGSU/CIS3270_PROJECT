@@ -23,7 +23,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Downloads/icons8-login-90.png" />
+                        <Image url="@icons8-login-90.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -52,7 +52,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Downloads/icons8-return-64.png" />
+                        <Image url="@icons8-return-64.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
