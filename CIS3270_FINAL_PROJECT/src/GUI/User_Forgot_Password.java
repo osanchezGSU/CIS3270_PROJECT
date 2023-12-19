@@ -153,10 +153,50 @@ public class User_Forgot_Password {
         }
     }
 
+   
     @FXML
     public void showPassword(ActionEvent e) {
-        // You may add additional functionality here if needed
+        clearErrorMessages();
+
+        String selectedQuestion = securityQuestionsComboBox.getValue();
+        String enteredAnswer = answerTextField.getText();
+
+        if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
+            errorMessageAnswer.setText("Please select a security question and enter the answer.");
+            return;
+        }
+
+        try {
+            UserDBTEST userDB = new UserDBTEST();
+            Connection connectDB = userDB.getConnection();
+
+            String getSecurityInfo = "SELECT answer1, answer2, Password FROM UserSecurityQuestions WHERE username = ?";
+            PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
+            preparedStatement.setString(1, usernameTextField.getText());
+
+            ResultSet queryResult = preparedStatement.executeQuery();
+
+            if (queryResult.next()) {
+                String storedAnswer1 = queryResult.getString("answer1");
+                String storedAnswer2 = queryResult.getString("answer2");
+
+                if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
+                        || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
+                    // Display the password
+                    String retrievedPassword = queryResult.getString("password");
+                    passwordLabel.setText("Your password is: " + retrievedPassword);
+                    passwordLabel.setVisible(true);
+                } else {
+                    errorMessageAnswer.setText("The answer is incorrect.");
+                }
+            }
+
+            connectDB.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
+
 
     private void clearErrorMessages() {
         errorMessageUsername.setText("");
