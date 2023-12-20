@@ -103,7 +103,7 @@ public class User_Registration {
 	    }
 	 
 	  public void switchToWelcome(ActionEvent event) throws IOException {
-	        root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
+	        root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
 	        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        scene = new Scene(root);
 	        stage.setScene(scene);
