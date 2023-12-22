@@ -27,6 +27,10 @@ public class User_Forgot_Password {
 
     @FXML
     private TextField usernameTextField;
+    
+    @FXML
+    private TextField passwordTextField;
+
 
     @FXML
     private TextField answerTextField;
@@ -111,6 +115,8 @@ public class User_Forgot_Password {
         }
     }
 
+ 
+    
     @FXML
     public void checkAnswer(ActionEvent e) {
         clearErrorMessages();
@@ -127,21 +133,25 @@ public class User_Forgot_Password {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
 
-            String getSecurityInfo = "SELECT answer1, answer2 FROM UserSecurityQuestions WHERE username = ?";
+            String getSecurityInfo = "SELECT answer1, answer2, Password FROM UserSecurityQuestions WHERE Username = ?";
             PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
             preparedStatement.setString(1, usernameTextField.getText());
 
             ResultSet queryResult = preparedStatement.executeQuery();
 
             if (queryResult.next()) {
-                String storedAnswer1 = queryResult.getString("answer1");
-                String storedAnswer2 = queryResult.getString("answer2");
+                String storedAnswer1 = queryResult.getString("answer1").trim();
+                String storedAnswer2 = queryResult.getString("answer2").trim();
+                String retrievedPassword = queryResult.getString("Password");
 
-                if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
-                        || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
-                    // Display the password or perform other actions
-                    passwordLabel.setText("Your password is: *****");
+                // Check if the entered answer matches either of the stored answers
+                if ((selectedQuestion.equals("question1") && enteredAnswer.equalsIgnoreCase(storedAnswer1))
+                        || (selectedQuestion.equals("question2") && enteredAnswer.equalsIgnoreCase(storedAnswer2))) {
+                    // Display the password
+                    passwordLabel.setText("Your password is: " + retrievedPassword);
                     passwordLabel.setVisible(true);
+                    // Clear error message since the answer is correct
+                    errorMessageAnswer.setText("");
                 } else {
                     errorMessageAnswer.setText("The answer is incorrect.");
                 }
@@ -152,6 +162,7 @@ public class User_Forgot_Password {
             ex.printStackTrace();
         }
     }
+
 
    
     @FXML
@@ -170,20 +181,21 @@ public class User_Forgot_Password {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
 
-            String getSecurityInfo = "SELECT answer1, answer2, Password FROM UserSecurityQuestions WHERE username = ?";
+            String getSecurityInfo = "SELECT USQ.answer1, USQ.answer2, U.Password FROM UserSecurityQuestions USQ "
+                    + "JOIN Users U ON U.Username = USQ.username WHERE USQ.username = ?";
             PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
             preparedStatement.setString(1, usernameTextField.getText());
 
             ResultSet queryResult = preparedStatement.executeQuery();
 
             if (queryResult.next()) {
-                String storedAnswer1 = queryResult.getString("answer1");
-                String storedAnswer2 = queryResult.getString("answer2");
+                String storedAnswer1 = queryResult.getString("answer1").trim();
+                String storedAnswer2 = queryResult.getString("answer2").trim();
+                String retrievedPassword = queryResult.getString("Password");
 
                 if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
                         || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
                     // Display the password
-                    String retrievedPassword = queryResult.getString("password");
                     passwordLabel.setText("Your password is: " + retrievedPassword);
                     passwordLabel.setVisible(true);
                 } else {
@@ -196,6 +208,7 @@ public class User_Forgot_Password {
             ex.printStackTrace();
         }
     }
+
 
 
     private void clearErrorMessages() {
