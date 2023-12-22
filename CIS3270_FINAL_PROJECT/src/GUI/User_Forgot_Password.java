@@ -1,5 +1,5 @@
 package GUI;
-
+ 
 import Database.UserDBTEST;
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,36 +19,44 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+ 
 public class User_Forgot_Password {
-
+ 
     @FXML
     private ComboBox<String> securityQuestionsComboBox;
-
+ 
     @FXML
     private TextField usernameTextField;
+<<<<<<< HEAD
+ 
+=======
+    
+    @FXML
+    private TextField passwordTextField;
 
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
     @FXML
     private TextField answerTextField;
-
+ 
     @FXML
     private Label errorMessageUsername;
-
+ 
     @FXML
     private Label errorMessageSecurity;
-
+ 
     @FXML
     private Label errorMessageAnswer;
-
+ 
     @FXML
     private Label passwordLabel;
-
+ 
     @FXML
     private Button retrievePasswordButton;
-
+ 
     @FXML
     private Button showPasswordButton;
-
+ 
     @FXML
     public void switchToUserLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
@@ -57,46 +65,46 @@ public class User_Forgot_Password {
         stage.setScene(scene);
         stage.show();
     }
-
+ 
     @FXML
     public void initialize() {
         // Clear error messages initially
         clearErrorMessages();
-
+ 
         // Hide security questions ComboBox, answer text field, and password label initially
         securityQuestionsComboBox.setVisible(false);
         answerTextField.setVisible(false);
         passwordLabel.setVisible(false);
         showPasswordButton.setVisible(false);
     }
-
+ 
     @FXML
     public void retrievePasswordButtonOnAction(ActionEvent e) {
         clearErrorMessages();
-
+ 
         String username = usernameTextField.getText();
         if (username.isEmpty()) {
             errorMessageUsername.setText("Please enter your username.");
             return;
         }
-
+ 
         try {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
-
+ 
             String getUsernameInfo = "SELECT question1, question2 FROM UserSecurityQuestions WHERE username = ?";
             PreparedStatement preparedStatement = connectDB.prepareStatement(getUsernameInfo);
             preparedStatement.setString(1, username);
-
+ 
             ResultSet queryResult = preparedStatement.executeQuery();
-
+ 
             if (queryResult.next()) {
                 String question1 = queryResult.getString("question1");
                 String question2 = queryResult.getString("question2");
-
+ 
                 ObservableList<String> securityQuestions = FXCollections.observableArrayList(question1, question2);
                 securityQuestionsComboBox.setItems(securityQuestions);
-
+ 
                 // Show security questions ComboBox and answer text field
                 securityQuestionsComboBox.setVisible(true);
                 answerTextField.setVisible(true);
@@ -104,108 +112,151 @@ public class User_Forgot_Password {
             } else {
                 errorMessageUsername.setText("The username does not exist.");
             }
-
+ 
             connectDB.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+<<<<<<< HEAD
+ 
+=======
 
+ 
+    
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
     @FXML
     public void checkAnswer(ActionEvent e) {
         clearErrorMessages();
-
+ 
         String selectedQuestion = securityQuestionsComboBox.getValue();
         String enteredAnswer = answerTextField.getText();
-
+ 
         if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
             errorMessageAnswer.setText("Please select a security question and enter the answer.");
             return;
         }
-
+ 
         try {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
-
+<<<<<<< HEAD
+ 
             String getSecurityInfo = "SELECT answer1, answer2 FROM UserSecurityQuestions WHERE username = ?";
+=======
+
+            String getSecurityInfo = "SELECT answer1, answer2, Password FROM UserSecurityQuestions WHERE Username = ?";
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
             PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
             preparedStatement.setString(1, usernameTextField.getText());
-
+ 
             ResultSet queryResult = preparedStatement.executeQuery();
-
+ 
             if (queryResult.next()) {
+<<<<<<< HEAD
                 String storedAnswer1 = queryResult.getString("answer1");
                 String storedAnswer2 = queryResult.getString("answer2");
-
+ 
                 if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
                         || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
                     // Display the password or perform other actions
                     passwordLabel.setText("Your password is: *****");
+=======
+                String storedAnswer1 = queryResult.getString("answer1").trim();
+                String storedAnswer2 = queryResult.getString("answer2").trim();
+                String retrievedPassword = queryResult.getString("Password");
+
+                // Check if the entered answer matches either of the stored answers
+                if ((selectedQuestion.equals("question1") && enteredAnswer.equalsIgnoreCase(storedAnswer1))
+                        || (selectedQuestion.equals("question2") && enteredAnswer.equalsIgnoreCase(storedAnswer2))) {
+                    // Display the password
+                    passwordLabel.setText("Your password is: " + retrievedPassword);
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
                     passwordLabel.setVisible(true);
+                    // Clear error message since the answer is correct
+                    errorMessageAnswer.setText("");
                 } else {
                     errorMessageAnswer.setText("The answer is incorrect.");
                 }
             }
-
+ 
             connectDB.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+<<<<<<< HEAD
+ 
+=======
 
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
    
     @FXML
     public void showPassword(ActionEvent e) {
         clearErrorMessages();
-
+ 
         String selectedQuestion = securityQuestionsComboBox.getValue();
         String enteredAnswer = answerTextField.getText();
-
+ 
         if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
             errorMessageAnswer.setText("Please select a security question and enter the answer.");
             return;
         }
-
+ 
         try {
             UserDBTEST userDB = new UserDBTEST();
             Connection connectDB = userDB.getConnection();
-
+<<<<<<< HEAD
+ 
             String getSecurityInfo = "SELECT answer1, answer2, Password FROM UserSecurityQuestions WHERE username = ?";
+=======
+
+            String getSecurityInfo = "SELECT USQ.answer1, USQ.answer2, U.Password FROM UserSecurityQuestions USQ "
+                    + "JOIN Users U ON U.Username = USQ.username WHERE USQ.username = ?";
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
             PreparedStatement preparedStatement = connectDB.prepareStatement(getSecurityInfo);
             preparedStatement.setString(1, usernameTextField.getText());
-
+ 
             ResultSet queryResult = preparedStatement.executeQuery();
-
+ 
             if (queryResult.next()) {
+<<<<<<< HEAD
                 String storedAnswer1 = queryResult.getString("answer1");
                 String storedAnswer2 = queryResult.getString("answer2");
+ 
+=======
+                String storedAnswer1 = queryResult.getString("answer1").trim();
+                String storedAnswer2 = queryResult.getString("answer2").trim();
+                String retrievedPassword = queryResult.getString("Password");
 
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
                 if ((selectedQuestion.equals("question1") && enteredAnswer.equals(storedAnswer1))
                         || (selectedQuestion.equals("question2") && enteredAnswer.equals(storedAnswer2))) {
                     // Display the password
-                    String retrievedPassword = queryResult.getString("password");
                     passwordLabel.setText("Your password is: " + retrievedPassword);
                     passwordLabel.setVisible(true);
                 } else {
                     errorMessageAnswer.setText("The answer is incorrect.");
                 }
             }
-
+ 
             connectDB.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+<<<<<<< HEAD
+ 
+ 
+=======
 
 
+
+>>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
     private void clearErrorMessages() {
         errorMessageUsername.setText("");
         errorMessageSecurity.setText("");
         errorMessageAnswer.setText("");
     }
 }
-
-
-
-
-
