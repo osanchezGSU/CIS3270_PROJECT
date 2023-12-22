@@ -69,9 +69,15 @@ public class User_Registration {
 
 	 
 	 private String username;
+	 
+	 private String password;
 
 	 public void setUsername(String username) {
 		 this.username = username;
+	 }
+	 
+	 public void setPassword(String password) {
+		 this.password = password;
 	 }
 	 
 	  String errorStyle = String.format("-fx-background-color: transparent;\n"
@@ -93,6 +99,7 @@ public class User_Registration {
 	        SecurityQuestions securityQuestionsController = loader.getController();
 
 	        // Pass the username parameter
+	        securityQuestionsController.setPassword(password);
 	        securityQuestionsController.setUsername(username);
 	        System.out.println("Switching to SecurityQuestions with username: " + username);
 	        // Switch to the scene
@@ -103,7 +110,7 @@ public class User_Registration {
 	    }
 	 
 	  public void switchToWelcome(ActionEvent event) throws IOException {
-	        root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
+	        root = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
 	        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        scene = new Scene(root);
 	        stage.setScene(scene);
@@ -167,6 +174,8 @@ public class User_Registration {
                 
                 	  
                 	  registerUser();
+                	  
+                	  setPassword(setPassword.getText());
                 	  
                 	  setUsername(setUsername.getText());
          

@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX1">
-=======
-	<classpathentry kind="lib" path="/Users/caugustus/Downloads/mysql-connector-j-8.2.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 	<classpathentry kind="lib" path="/Users/osvaldosanchez/Downloads/mysql-connector-j-8.2.0/mysql-connector-j-8.2.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/osvaldosanchez/Downloads/controlsfx-11.2.0.jar"/>
-=======
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/caugustus/Downloads/controlsfx-11.2.0.jar"/>
->>>>>>> branch 'master' of https://github.com/osanchezGSU/CIS3270_PROJECT.git
+	<classpathentry kind="lib" path="/Users/osvaldosanchez/Downloads/jar_files/fontawesomefx-commons-9.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/osvaldosanchez/Downloads/jar_files/fontawesomefx-fontawesome-4.7.0-9.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

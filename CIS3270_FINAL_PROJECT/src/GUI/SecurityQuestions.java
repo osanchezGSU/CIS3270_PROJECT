@@ -55,8 +55,13 @@ public class SecurityQuestions implements Initializable {
 	 
 	private String username;
 
+	private String password;
+	
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	
@@ -160,7 +165,7 @@ public class SecurityQuestions implements Initializable {
        
 
         
-        String insertToRegister = "INSERT INTO UserSecurityQuestions (username, question1, question2, answer1, answer2) VALUES (?, ?, ?, ?, ?)";
+        String insertToRegister = "INSERT INTO UserSecurityQuestions (username, password, question1, question2, answer1, answer2) VALUES (?, ?, ?, ?, ?, ?)";
         
     	String userQuestion1 = question1.getValue();
     	String userQuestion2 = question2.getValue();
@@ -177,11 +182,13 @@ public class SecurityQuestions implements Initializable {
             PreparedStatement preparedStatement = connectDB.prepareStatement(insertToRegister);
             
             preparedStatement.setString(1, username);
-            preparedStatement.setString(2, userQuestion1);
-            preparedStatement.setString(3, userQuestion2);
+            preparedStatement.setString(2, password);
+            
+            preparedStatement.setString(3, userQuestion1);
+            preparedStatement.setString(4, userQuestion2);
            
-            preparedStatement.setString(4, userAnswer1);
-            preparedStatement.setString(5, userAnswer2);
+            preparedStatement.setString(5, userAnswer1);
+            preparedStatement.setString(6, userAnswer2);
            
      
 

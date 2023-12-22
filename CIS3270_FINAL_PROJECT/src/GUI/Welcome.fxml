@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Scene_Controller">
    <children>
-      <Button layoutX="137.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" prefHeight="42.0" prefWidth="132.0" stylesheets="@application.css" text="User" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="137.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToCustomer" prefHeight="42.0" prefWidth="132.0" stylesheets="@application.css" text="User" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="137.0">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
@@ -20,7 +20,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="353.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="42.0" prefWidth="123.0" stylesheets="@application.css" text="Admin" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="337.0" layoutY="301.0" minWidth="100.0" mnemonicParsing="false" onAction="#switchToAdmin" prefHeight="42.0" prefWidth="126.0" stylesheets="@application.css" text="Admin" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="137.0">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font name="Bodoni Ornaments" size="13.0" />
          </font>
       </Text>
-      <ImageView fitHeight="302.0" fitWidth="439.0" layoutX="99.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="302.0" fitWidth="439.0" layoutX="99.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@imageedit_28_5003050737.png" />
          </image>
