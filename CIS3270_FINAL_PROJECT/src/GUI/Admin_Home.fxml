@@ -41,7 +41,7 @@
                   </Button>
                   <Button fx:id="MyAccountButton" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="79.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="My Bookings" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="BOOK" selectionEnd="1" />

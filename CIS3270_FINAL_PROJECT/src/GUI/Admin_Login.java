@@ -57,7 +57,7 @@ public class Admin_Login {
         } else {    	
        
         	
-            errorMessage.setText("Please enter your username and password");
+            errorMessage.setText("Enter username and password");
         }
     }
 
