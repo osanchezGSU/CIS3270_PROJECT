@@ -33,7 +33,7 @@
                <children>
                   <Button fx:id="HomeButton" mnemonicParsing="false" prefHeight="79.0" prefWidth="124.0" style="-fx-background-color: Transparent;" stylesheets="@application.css" text="Home" textFill="WHITE">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="15.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="HOME" />
@@ -41,14 +41,14 @@
                   </Button>
                   <Button fx:id="MyAccountButton" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="79.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="My Bookings" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="BOOK" selectionEnd="1" />
                      </graphic></Button>
                   <Button fx:id="LogButton" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="79.0" prefWidth="124.0" style="-fx-background-color: transparent;" text="Sign Out" textFill="WHITE">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="15.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" />

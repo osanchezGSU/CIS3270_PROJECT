@@ -14,8 +14,8 @@
    <children>
     <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="mainRoot" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="adminusernameTextField" layoutX="394.0" layoutY="106.0" promptText="Username" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
-            <PasswordField fx:id="adminpasswordPasswordTextField" layoutX="394.0" layoutY="149.0" promptText="Password" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
+            <TextField fx:id="usernameTextField" layoutX="394.0" layoutY="106.0" promptText="Username" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
+            <PasswordField fx:id="passwordPasswordTextField" layoutX="394.0" layoutY="149.0" promptText="Password" styleClass="textfield" stylesheets="@application.css" AnchorPane.rightAnchor="42.5" />
             <Button layoutX="510.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Login" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="42.5">
                <font>
                   <Font name="Arial Bold" size="16.0" />
@@ -32,19 +32,11 @@
                   <Font name="Candara Light" size="40.0" />
                </font>
             </Label>
-            <Button layoutX="456.0" layoutY="248.0" mnemonicParsing="false" onAction="#switchToAdminForgotPassword" stylesheets="@application.css" text="Forgot Password" textFill="WHITE" AnchorPane.rightAnchor="42.5">
-               <font>
-                  <Font name="Arial Bold" size="16.0" />
-               </font></Button>
             <ImageView fitHeight="191.0" fitWidth="292.0" layoutX="8.0" layoutY="83.0">
                <image>
                   <Image url="@imageedit_28_5003050737.png" />
                </image>
             </ImageView>
-            <Button layoutX="456.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToAdminRegistration" prefHeight="31.0" prefWidth="152.0" stylesheets="@application.css" text="Sign Up" textFill="WHITE" AnchorPane.rightAnchor="42.5">
-               <font>
-                  <Font name="Arial Bold" size="16.0" />
-               </font></Button>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="21.0" prefWidth="28.0" stylesheets="@application.css" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font name="Arial Bold" size="10.0" />
