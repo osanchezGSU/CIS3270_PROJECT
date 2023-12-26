@@ -8,50 +8,48 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="76.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FlightItem">
+<AnchorPane prefHeight="107.0" prefWidth="501.0" stylesheets="@UserHome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FlightItem">
    <children>
-      <HBox prefHeight="75.0" prefWidth="504.0" style="-fx-background-color: Transparent;">
-         <children>
-            <Button fx:id="viewDetails1" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="107.0" prefWidth="586.0" stylesheets="@application.css">
-               <graphic>
-                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="509.0" spacing="25.0">
+      <Button fx:id="selectFlights" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#popUpDetails" prefHeight="107.0" prefWidth="503.0" stylesheets="@UserHome.css">
+         <graphic>
+            <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="509.0" spacing="25.0">
+               <children>
+                  <Label fx:id="FlightID" prefHeight="23.0" prefWidth="74.0" text="LightID">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="134.0" spacing="15.0">
                      <children>
-                        <Label fx:id="FlightID" prefHeight="23.0" prefWidth="74.0" text="LightID">
+                        <Label fx:id="FlightTime" text="Flight Time">
                            <font>
-                              <Font size="14.0" />
-                           </font></Label>
-                        <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="134.0" spacing="15.0">
-                           <children>
-                              <Label fx:id="FlightTime" text="Flight Time">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></Label>
-                              <Label fx:id="travel" prefHeight="17.0" prefWidth="113.0" text="From - To" />
-                           </children>
-                        </VBox>
-                        <Label fx:id="Airline" alignment="TOP_LEFT" prefHeight="55.0" prefWidth="151.0" text="Airlines">
-                           <graphic>
-                              <ImageView fx:id="airlineIMG1" fitHeight="50.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <font>
-                              <Font size="14.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
-                           <children>
-                              <Label fx:id="Price" alignment="CENTER" text="\$$$">
-                                 <font>
-                                    <Font size="31.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Per traveler" />
-                           </children>
-                        </VBox>
+                        <Label fx:id="travel" prefHeight="17.0" prefWidth="113.0" text="From - To" />
                      </children>
-                  </HBox>
-               </graphic>
-            </Button>
-         </children>
-      </HBox>
+                  </VBox>
+                  <Label fx:id="Airline" alignment="TOP_LEFT" prefHeight="55.0" prefWidth="151.0" text="Airlines">
+                     <graphic>
+                        <ImageView fx:id="airlineIMG1" fitHeight="50.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                     <children>
+                        <Label fx:id="Price" alignment="CENTER" text="\$$$">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Label>
+                        <Label text="Per traveler" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

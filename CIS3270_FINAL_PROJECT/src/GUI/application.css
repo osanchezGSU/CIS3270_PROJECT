@@ -7,11 +7,14 @@
 
 .button{
 	-fx-background-color: linear-gradient(to top right, #09203F, #537895);
+	-fx-cursor: hand;
 	
 }
 
 .button:hover {
 	-fx-background-color: linear-gradient(to top left, red, blue);
+	-fx-cursor: hand;
+
 	
 }
 
@@ -40,6 +43,7 @@
 #HomeButton:hover {
 	-fx-text-fill: red ;
 	-fx-border-bottom-color: white;
+	-fx-cursor: hand;
 	
 	
 }
@@ -50,14 +54,17 @@
 #LogButton:hover {
 	-fx-text-fill: red ;
 	-fx-text-underliine-color: White;
+	-fx-cursor: hand;
 	
 }
 #MyAccountButton {
 	-fx-text-fill: white ;
 	
+	
 }
 #MyAccountButton:hover {
 	-fx-text-fill: red ;
+	-fx-cursor: hand;
 	
 }
 
@@ -77,11 +84,13 @@
 .combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover{
     -fx-background-color: white;
     -fx-text-fill: blue;
+    -fx-cursor: hand;
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover{
     -fx-background-color: #6a8ff6;
     -fx-text-fill: black;
+    -fx-cursor: hand;
 }
 
 .combo-box-base{
@@ -108,11 +117,14 @@
 .searcheable-combo-box-popup .list-view .list-cell:filled:selected, .searcheable-combo-box-popup .list-view .list-cell:filled:selected:hover{
     -fx-background-color: white;
     -fx-text-fill: blue;
+    -fx-cursor: hand;
 }
 
 .searcheable-combo-box-popup .list-view .list-cell:filled:hover{
     -fx-background-color: LightBlue;
     -fx-text-fill: black;
+    -fx-cursor: hand;
+
 }
 
 .searcheable-combo-box-base{
@@ -124,6 +136,8 @@
 
 .searcheable-combo-box:hover{
 	-fx-background-color: #6a8ff6  ;
+	-fx-cursor: hand;
+	
 }
 
 .searcheable-combo-box-base:hover{
@@ -131,16 +145,14 @@
     -fx-padding: 0;
     -fx-border-color: #6a8ff6;
     -fx-border-width: .25;
+    -fx-cursor: hand;
 }
 
-.transparent{
-	-fx-background-color: rgba(0,0,0,0);
-}
 
-#viewDetails1 {
-	-fx-background-color:#ABB7B9; 
-	-fx-background-radius: 15px;
-}
+
+
+
+
 
 
 

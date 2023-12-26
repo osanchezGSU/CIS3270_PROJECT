@@ -6,10 +6,17 @@ public class Flight {
 	private String arrivalCity;
 	private String flightID;
 	private String time;
-	private String price;
+	private Integer price;
 	private String travel;
 	private String imgSrc;
 	private String airlineName;
+	private String filteredTime;
+	private Integer numOfTravelers;
+	
+	private Double taxes = 0.075;
+	private Double securityFee = 5.60;
+	private Double governmentExcise = 4.00;
+	
 	
 	public String getTime() {
 		return time;
@@ -17,10 +24,10 @@ public class Flight {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	public String getTravel() {
@@ -65,6 +72,37 @@ public class Flight {
 	}
 	public void setDateString(String dateString) {
 		this.dateString = dateString;
+	}
+	public String getFilteredTime() {
+		return filteredTime;
+	}
+	public void setFilteredTime(String filteredTime) {
+		this.filteredTime = filteredTime;
+	}
+	public Integer getNumOfTravelers() {
+	    return numOfTravelers;
+	}
+
+	public void setNumOfTravelers(Integer numOfTravelers) {
+	    this.numOfTravelers = numOfTravelers;
+	}
+	public Double getTaxes() {
+		return taxes;
+	}
+	public void setTaxes(Double taxes) {
+		this.taxes = taxes;
+	}
+	public Double getSecurityFee() {
+		return securityFee;
+	}
+	public void setSecurityFee(Double securityFee) {
+		this.securityFee = securityFee;
+	}
+	public Double getGovernmentExcise() {
+		return governmentExcise;
+	}
+	public void setGovernmentExcise(Double governmentExcise) {
+		this.governmentExcise = governmentExcise;
 	}
 	
 
