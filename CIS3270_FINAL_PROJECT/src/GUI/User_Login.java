@@ -64,7 +64,7 @@ public class User_Login {
         	
        
         	
-            errorMessage.setText("Please enter your username and password");
+            errorMessage.setText("Enter username and password");
         }
     }
 

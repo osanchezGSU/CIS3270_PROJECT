@@ -1,6 +1,6 @@
 package GUI;
 
-import Database.AdminDB;
+import Database.UserDBTEST;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,10 +30,10 @@ public class Admin_Login {
     private Parent root;
 
     @FXML
-    private TextField adminusernameTextField;
+    private TextField usernameTextField;
 
     @FXML
-    private PasswordField adminpasswordPasswordTextField;
+    private PasswordField passwordPasswordTextField;
 
     @FXML
     private Text errorMessage;
@@ -49,41 +49,25 @@ public class Admin_Login {
         stage.show();
     }
 
-    public void switchToAdminForgotPassword(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Admin_Forgot_Password.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void loginButtonOnAction(ActionEvent e) {
     
-        if (adminusernameTextField.getText().isBlank() == false && adminpasswordPasswordTextField.getText().isBlank() == false) {
+        if (usernameTextField.getText().isBlank() == false && passwordPasswordTextField.getText().isBlank() == false) {
             validateLogin();
         } else {    	
        
         	
-            errorMessage.setText("Please enter your username and password");
+            errorMessage.setText("Enter username and password");
         }
     }
 
-    public void switchToAdminRegistration(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Admin_Registration.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
 
     public void validateLogin() {
-        AdminDB connectNow = new AdminDB();
+        UserDBTEST connectNow = new UserDBTEST();
         Connection connectDB = connectNow.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM Users WHERE username = '"
-                + adminusernameTextField.getText() + "' AND password = '" + adminpasswordPasswordTextField.getText() + "'";
+        String verifyLogin = "SELECT count(1) FROM Admin WHERE adminuser = '"
+                + usernameTextField.getText() + "' AND adminpassword = '" + passwordPasswordTextField.getText() + "'";
 
         try {
             Statement statement = connectDB.createStatement();
@@ -114,7 +98,7 @@ public class Admin_Login {
 
     public void switchToAdminHome() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Admin_Home.fxml"));
-        stage = (Stage) adminusernameTextField.getScene().getWindow();
+        stage = (Stage) usernameTextField.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
