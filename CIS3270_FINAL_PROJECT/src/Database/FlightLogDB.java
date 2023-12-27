@@ -143,6 +143,8 @@ public class FlightLogDB {
                         flight.setTime(resultSet.getString("FlightTime"));
                         flight.setAirlineName(resultSet.getString("AirlineName"));
                         flight.setPrice(Integer.parseInt(resultSet.getString("Price")));
+                        flight.setOpenSeats(Integer.parseInt(resultSet.getString("FlightOpenSeats")));
+                        
                         ls.add(flight);
                     }
                 }
@@ -239,6 +241,9 @@ public class FlightLogDB {
                         user.setBookedArrivalCity(resultSet.getString("ArrivalCity"));
                         user.setBookedDepartureCity(resultSet.getString("DepartureCity"));
                         user.setBookedFlightDate(resultSet.getString("FlightDate"));
+           
+                       // user.setBookedPrice(resultSet.getInt("FlightDa"));
+                        
                         flightDetails.add(user);
                     }
                 }
@@ -249,6 +254,59 @@ public class FlightLogDB {
 
         return flightDetails;
     }
+
+	public static boolean deleteFlight(Flight flightToDelete) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public static List<Customer> getAdditionalInfo(String  userName) {
+	        List<Customer> additionalInfo = new ArrayList<>();
+
+	        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
+	        String username = "root";
+	        String password = "root";
+
+	        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
+	            String sql = "SELECT *  FROM Reservations WHERE Username = ?";
+	            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+	                statement.setString(1, userName);
+	                
+	             
+	                try (ResultSet resultSet = statement.executeQuery()) {
+	                    while (resultSet.next()) {
+	                    	Customer user = new Customer();
+	                    	user.setBookedReservationID(resultSet.getInt("ReservationID"));
+	                    	user.setNumOfTravelers(resultSet.getInt("NumOfTravelers"));
+	                    	user.setReservationDate(resultSet.getString("ReservationDate"));
+	                    	System.out.print(resultSet.getInt("ReservationID"));
+	                    	additionalInfo.add(user);
+	                    }
+	                }
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        return additionalInfo;
+	    }
+	
+	public static void deleteReservation(int bookedReservationID) {
+        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
+        String username = "root";
+        String password = "root";
+
+        try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
+            String sql = "DELETE FROM Reservations WHERE ReservationID = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, bookedReservationID);
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+	
   
 }
 

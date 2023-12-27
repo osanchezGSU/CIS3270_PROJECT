@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Common.Customer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +41,8 @@ public class User_Login {
 
     @FXML
     private Button submitButton;
+    
+	 public static Customer user = new Customer();
 
     public void switchToWelcome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
@@ -94,6 +97,7 @@ public class User_Login {
             
                     Platform.runLater(() -> {
                         try {
+                        	user.setUsername(usernameTextField.getText());
                             switchToUserHome();
                         } catch (IOException e) {
                             e.printStackTrace();

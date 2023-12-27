@@ -14,7 +14,14 @@ public class Customer {
 	private String bookedFlightDate;
 	 
 	private String bookedAirlineName;
+	
+	private String reservationDate;
+	
+	private int bookedPrice;
+	
+	private int bookedReservationID;
 	 
+	private int numOfTravelers;
 	 private String username;
 	 
 	 private String password;
@@ -81,5 +88,37 @@ public class Customer {
 
 	public void setBookedDepartureCity(String bookedDepartureCity) {
 		this.bookedDepartureCity = bookedDepartureCity;
+	}
+
+	public int getBookedPrice() {
+		return bookedPrice;
+	}
+
+	public void setBookedPrice(int bookedPrice) {
+		this.bookedPrice = bookedPrice;
+	}
+
+	public int getBookedReservationID() {
+		return bookedReservationID;
+	}
+
+	public void setBookedReservationID(int bookedReservationID) {
+		this.bookedReservationID = bookedReservationID;
+	}
+
+	public int getNumOfTravelers() {
+		return numOfTravelers;
+	}
+
+	public void setNumOfTravelers(int numOfTravelers) {
+		this.numOfTravelers = numOfTravelers;
+	}
+
+	public String getReservationDate() {
+		return reservationDate;
+	}
+
+	public void setReservationDate(String reservationDate) {
+		this.reservationDate = reservationDate;
 	}
 }

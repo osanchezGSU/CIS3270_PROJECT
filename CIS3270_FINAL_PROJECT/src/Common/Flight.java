@@ -12,6 +12,7 @@ public class Flight {
 	private String airlineName;
 	private String filteredTime;
 	private Integer numOfTravelers;
+	private Integer openSeats;
 	
 	private Double taxes = 0.075;
 	private Double securityFee = 5.60;
@@ -104,6 +105,13 @@ public class Flight {
 	public void setGovernmentExcise(Double governmentExcise) {
 		this.governmentExcise = governmentExcise;
 	}
+	public Integer getOpenSeats() {
+		return openSeats;
+	}
+	public void setOpenSeats(Integer openSeats) {
+		this.openSeats = openSeats;
+	}
+	
 	
 
 }

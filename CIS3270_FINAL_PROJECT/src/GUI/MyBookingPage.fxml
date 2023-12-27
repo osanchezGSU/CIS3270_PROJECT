@@ -31,7 +31,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="MyAccountButton" mnemonicParsing="false" prefHeight="79.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="My Bookings" textFill="WHITE">
+                  <Button fx:id="MyAccountButton" mnemonicParsing="false" onAction="#switchToMyBookings" prefHeight="79.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="My Bookings" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -52,41 +52,7 @@
                <content>
                   <VBox fx:id="FlightsLayout" alignment="TOP_RIGHT" prefHeight="412.0" prefWidth="651.0" spacing="15.0" style="-fx-background-color: white;" styleClass="transparent" stylesheets="@UserHome.css">
                      <children>
-                        <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="658.0" spacing="10.0">
-                           <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="110.0" text="Flight ID">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="91.0" text="Date">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="155.0" text="Departing From">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="108.0" text="Arriving To">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="94.0" text="Time">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="26.0" prefWidth="69.0" text="Airline">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label prefWidth="64.0" text="Button" />
-                           </children>
-                        </HBox>
+                        <AnchorPane fx:id="FlightId" />
                      </children></VBox>
                </content>
             </ScrollPane>
@@ -96,7 +62,7 @@
          <children>
             <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="658.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="110.0" text="Flight ID">
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="91.0" text="Flight ID">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -106,27 +72,27 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="155.0" text="Departing From">
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="148.0" text="Departing From">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="108.0" text="Arriving To">
+                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="115.0" text="Arriving To">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="94.0" text="Time">
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="66.0" text="Time">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="26.0" prefWidth="69.0" text="Airline">
+                  <Label prefHeight="17.0" prefWidth="5.0" />
+                  <Label prefHeight="26.0" prefWidth="84.0" text="Airline">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label prefWidth="64.0" text="Button" />
                </children>
             </HBox>
          </children>

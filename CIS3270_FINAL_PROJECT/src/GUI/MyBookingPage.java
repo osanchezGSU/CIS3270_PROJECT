@@ -70,6 +70,14 @@ public class MyBookingPage implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    public void switchToMyBookings(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MyBookingPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,6 +113,9 @@ public class MyBookingPage implements Initializable {
         Customer user = User_Registration.user;
         List<Customer> flightInfo = FlightLogDB.getBookedFlightDetails(getBookedFlightsForUser(user.getUsername()));
         List<Customer> flights = new ArrayList<>();
+        
+     
+
 
         for (Customer info : flightInfo) {
             Customer newFlight = new Customer(); // Create a new Customer object for each iteration
@@ -114,14 +125,29 @@ public class MyBookingPage implements Initializable {
             newFlight.setBookedFlightTime(info.getBookedFlightTime());
             newFlight.setBookedArrivalCity(info.getBookedArrivalCity());
             newFlight.setBookedDepartureCity(info.getBookedDepartureCity());
-            flights.add(newFlight);
+            newFlight.setBookedFlightDate(info.getBookedFlightDate());
+            newFlight.setBookedPrice(info.getBookedPrice());
+         
+        
+        List<Customer> additionalInfo = FlightLogDB.getAdditionalInfo(user.getUsername());
+        System.out.println("Additional Info Size: " + additionalInfo.size());
+        for (Customer additionalInfoItem : additionalInfo) {
+            
+        	newFlight.setNumOfTravelers(additionalInfoItem.getNumOfTravelers());
+        	newFlight.setReservationDate(additionalInfoItem.getReservationDate());
+        	newFlight.setBookedReservationID(additionalInfoItem.getBookedReservationID());
+        	System.out.print(additionalInfoItem.getBookedReservationID());
+        	
+            
         }
 
+        flights.add(newFlight);
+    }
+    
         return flights;
     }
     
 }
-
     
 
 

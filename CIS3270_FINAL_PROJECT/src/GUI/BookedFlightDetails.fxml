@@ -9,36 +9,21 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="SelectedFlightLayOut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FlightItem">
+<VBox fx:id="SelectedFlightLayOut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BookedFlightController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox prefHeight="42.0" prefWidth="460.0">
                <children>
-                  <Label fx:id="PricePerTraveler" prefHeight="41.0" prefWidth="184.0" text="\$133">
+                  <Label fx:id="ReservationID" prefHeight="41.0" prefWidth="286.0" text="ReservationID: ">
                      <font>
-                        <Font size="44.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="21.0" prefWidth="155.0" text="One way for  1 Traveler" />
+                  <Label fx:id="ReservationDate" prefHeight="21.0" prefWidth="245.0" text="Reservation Date: " />
                </children>
             </VBox>
-            <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="293.0" spacing="5.0">
-               <children>
-                  <Label fx:id="SelectedFlightID" prefHeight="19.0" prefWidth="124.0" text="FlightID:">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Label>
-                  <Label fx:id="FlightDate" prefHeight="19.0" prefWidth="130.0" text="Flight Date" textAlignment="RIGHT">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Label>
-                  <Label fx:id="FlightTime" prefHeight="19.0" prefWidth="125.0" text="FlightTime">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Label>
-               </children>
-            </VBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="293.0" spacing="5.0" />
          </children>
       </HBox>
       <HBox prefHeight="69.0" prefWidth="416.0" spacing="10.0">
@@ -69,16 +54,15 @@
             </Label>
          </children>
       </HBox>
-      <Label fx:id="AirlineName" prefHeight="69.0" prefWidth="296.0" text="Airline Name">
+      <Label fx:id="AirlineName" prefHeight="69.0" prefWidth="296.0" text=" Airline Name">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
       <Line endX="38.579803466796875" endY="-4.34965705871582" startX="-376.71307373046875" startY="-4.34965705871582" stroke="#abb7b9" strokeWidth="3.0" />
-      <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="416.0">
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="416.0">
          <children>
-            <Label prefHeight="102.0" prefWidth="261.0" />
-            <Label prefHeight="27.0" prefWidth="146.0" text="Price Summary">
+            <Label prefHeight="27.0" prefWidth="67.0" text="Reciept" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,7 +84,7 @@
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="91.0" prefWidth="157.0" spacing="20.0">
                <children>
-                  <Label fx:id="PriceSubtotal" prefHeight="16.0" prefWidth="55.0" text="\$133" />
+                  <Label fx:id="Price" prefHeight="16.0" prefWidth="55.0" text="\$133" />
                   <Label fx:id="Taxes" prefHeight="16.0" prefWidth="55.0" text="\$133" />
                   <Label fx:id="TotalPrice" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="78.0" text="\$133" />
                </children>
@@ -109,7 +93,10 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="CheckOutButton" mnemonicParsing="false" onAction="#bookFlight" prefHeight="26.0" prefWidth="279.0" stylesheets="@UserHome.css" text="Check Out" />
+            <Button fx:id="RemoveButton" mnemonicParsing="false" onAction="#removeFlight" prefHeight="26.0" prefWidth="279.0" style="-fx-background-color: red;" stylesheets="@UserHome.css" text="Remove Selected Flight">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

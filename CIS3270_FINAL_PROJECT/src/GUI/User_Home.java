@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -37,6 +38,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 //import org.controlsfx.control.textfield.TextFields;
 //import org.controlsfx.control.textfield.AutoCompletionBinding;
+import javafx.util.Callback;
 
 public class User_Home implements Initializable {
     private Stage stage;
@@ -152,6 +154,7 @@ public class User_Home implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     	
+    	
     	Collections.sort(departureCities);
     	DepartureChoiceBox.getItems().addAll(departureCities);
         DepartureChoiceBox.setOnAction(this::getDepartureCities);
@@ -161,10 +164,31 @@ public class User_Home implements Initializable {
 
         
         clearFiltersButton.setOnAction(this::clearFilters);
+        
+        date.setDayCellFactory(new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(DatePicker param) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        // Disable past dates
+                        if (item.isBefore(LocalDate.now())) {
+                            setDisable(true);
+                            setStyle("-fx-background-color: #dddddd;"); // Optional: Change the style for disabled dates
+                        }
+                    }
+                };
+            }
+        });
+    }
+        
+        
      
         
       
-    }
+    
     
     
  
@@ -186,6 +210,7 @@ public class User_Home implements Initializable {
         flight.setDateString(formattedDate);
         flight.setTravel(flight.getDepartureCity() + " - " + flight.getArrivalCity());
         
+        
         updateAirlineFilterOptions(flight.getDepartureCity(), flight.getArrivalCity(), flight.getDateString());
    
    
@@ -201,6 +226,8 @@ public class User_Home implements Initializable {
             newFlight.setTime(info.getTime());
             //newFlight.setImgSrc(info.getImgSrc());
             newFlight.setPrice(info.getPrice());
+            newFlight.setOpenSeats(info.getOpenSeats());
+            
             newFlight.setTravel(flight.getTravel()); // Set the travel string for each new flight
             flights.add(newFlight);
         }

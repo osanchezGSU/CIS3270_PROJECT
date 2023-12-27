@@ -59,6 +59,9 @@ public class FlightItem implements Initializable{
     private Button selectFlights;
     
     @FXML
+    private Button CheckOutButton;
+    
+    @FXML
     private VBox SelectedFlightLayOut;
     
     @FXML
@@ -70,6 +73,8 @@ public class FlightItem implements Initializable{
 
     @FXML
     private Label NumOfTravelers;
+    
+    private Integer openSeats;
     
     private PopOver detailsPopOver;
     
@@ -88,6 +93,8 @@ public class FlightItem implements Initializable{
     public int lastInsertedID;
     
     private PopOver detailPopOver;
+    
+    private Integer newOpenSeats;
     
     Customer user = new Customer();
     
@@ -111,10 +118,18 @@ public class FlightItem implements Initializable{
     	
     }
     
+    
     public Integer getNumberOfTravelers( ) {
     	return numberOfTravelers;
     	
     }
+	public Integer getNewOpenSeats() {
+		return newOpenSeats;
+	}
+
+	public void setNewOpenSeats(Integer newOpenSeats) {
+		this.newOpenSeats = newOpenSeats;
+	}
     
  
     
@@ -150,6 +165,9 @@ public class FlightItem implements Initializable{
     	Price.setText("$" +Integer.toString(flight.getPrice()));
     	Airline.setText(flight.getAirlineName());
     	travel.setText(flight.getTravel());
+    	openSeats = flight.getOpenSeats();
+    	
+    	
     	   	
     	this.flight = flight;
     }
@@ -157,13 +175,13 @@ public class FlightItem implements Initializable{
    
 
     public FlightItem() {
-        // Initialize detailsPopOver in the constructor
+    
         detailsPopOver = new PopOver();
-        detailsPopOver.setDetachable(false); // Disable detachable feature
+        detailsPopOver.setDetachable(false); 
         detailsPopOver.setDetached(false);
     }
 
-    // Other methods...
+  
 
     public void popUpDetails(ActionEvent event) {
         // Use detailsPopOver directly without re-initializing it
@@ -234,13 +252,29 @@ public class FlightItem implements Initializable{
          
             	
             }
-            ImageView imageSourceImageView = (ImageView) popUpDetails.lookup("#imgSource");
-            if (imageSourceImageView != null) {
-                Image imgAirline = new Image(getClass().getResourceAsStream(flight.getImgSrc()));
-                imageSourceImageView.setImage(imgAirline);
-                System.out.print("Image Set Up");
+            Label priceSubtotalLabel = (Label) popUpDetails.lookup("#PriceSubtotal");
+            if (priceSubtotalLabel != null) {
+            	int priceSubtotal = numberOfTravelers * flight.getPrice();
+            	priceSubtotalLabel.setText("$" +priceSubtotal);
+         
+            	
             }
-            
+            Label taxesLabel = (Label) popUpDetails.lookup("#Taxes");
+            if (taxesLabel != null) {
+            	int priceSubtotal = numberOfTravelers * flight.getPrice();
+            	double taxes = (priceSubtotal * 0.075) + priceSubtotal + 5.60 + 4.00;
+            	taxesLabel.setText("$" +taxes);
+            }
+            Label totalLabel = (Label) popUpDetails.lookup("#TotalPrice");
+            if (totalLabel != null) {
+            	int priceSubtotal = numberOfTravelers * flight.getPrice();
+            	double taxes = (priceSubtotal * 0.075) + priceSubtotal + 5.60 + 4.00;
+            	double total = priceSubtotal + taxes;
+            	totalLabel.setText("$" +total);
+            }
+           
+         
+         setNewOpenSeats(openSeats);
             
 
             return popUpDetails;
@@ -269,6 +303,31 @@ public class FlightItem implements Initializable{
     	} catch (Exception e) {
     	    e.printStackTrace();
     	}
+    	if (isFlightAlreadyBooked()) {
+    		
+        	Notifications notification = Notifications.create()
+        		
+        		.title("Error")
+        		.text("Flight is already Booked")
+        		.hideAfter(Duration.seconds(6))
+        		.position(Pos.CENTER);
+        	notification.darkStyle();
+        	notification.showError();
+           
+            return; // Do not proceed further
+    	}
+    	/*if (isFlightOverBooked()) {
+    		Notifications notification = Notifications.create()
+            		
+            		.title("Error")
+            		.text("Flight is Over Booked")
+            		.hideAfter(Duration.seconds(6))
+            		.position(Pos.CENTER);
+            	notification.darkStyle();
+            	notification.showError();
+    		return;
+    	}*/
+    	
     	registerBookedFlight();
    
     
@@ -285,6 +344,8 @@ public class FlightItem implements Initializable{
     	notification.darkStyle();
     	notification.show();
     
+    	
+    	CheckOutButton.setDisable(true);
     
 
     
@@ -331,4 +392,42 @@ public class FlightItem implements Initializable{
     	        e.printStackTrace();
     	    }
     	}
+    private boolean isFlightAlreadyBooked() {
+    	Customer user = User_Registration.user;
+        // Implement the logic to check if the flight ID is in the reservation table
+        String flightIdToCheck = SelectedFlightID.getText(); // Get the flight ID
+
+        // Your database logic to check if the flight ID is already in the reservation table
+        // You can use the UserDBTEST or another appropriate class to execute a SQL query
+
+        // Example query (you need to adapt this to your database structure)
+        String query = "SELECT COUNT(*) FROM Reservations WHERE FlightID = ? AND Username = ? ";
+
+        try (Connection connection = new UserDBTEST().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, flightIdToCheck);
+            preparedStatement.setString(2, user.getUsername());
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt(1);
+                    return count > 0; // Return true if count is greater than 0 (flight is already booked)
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false; // Return false if there is an error or the flight is not booked
     }
+    private boolean isFlightOverBooked() {
+    	if (numberOfTravelers > getNewOpenSeats()) {
+    		return true;
+    	}
+    	else return false;
+    }
+    }
+    
+
+    

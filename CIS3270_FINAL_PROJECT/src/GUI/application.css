@@ -147,6 +147,53 @@
     -fx-border-width: .25;
     -fx-cursor: hand;
 }
+.date-picker {
+    -fx-font-size: 14px; /* Set the font size */
+}
+.date-picker .day-cell {
+    -fx-font-size: 14px; /* Set the font size */
+}
+
+/* Style the selected day cell */
+.date-picker .day-cell:selected {
+    -fx-background-color: #336699; /* Background color of the selected day */
+    -fx-text-fill: #ffffff; /* Text color of the selected day */
+}
+
+/* Style the disabled day cell */
+.date-picker .day-cell:disabled {
+    -fx-opacity: 0.5; /* Reduce opacity for disabled days */
+}
+
+/* Style the today's cell */
+.date-picker .day-cell:today {
+    -fx-background-color: #ffffcc; /* Background color of today's cell */
+    -fx-text-fill: #000000; /* Text color of today's cell */
+}
+
+/* Style the popup */
+.date-picker .popup {
+    -fx-background-color: #ffffff; /* Background color of the popup */
+    -fx-border-color: #336699; /* Border color of the popup */
+}
+
+/* Style the header area of the popup */
+.date-picker .popup .month-year-pane {
+    -fx-background-color: #336699; /* Background color of the header */
+    -fx-text-fill: #ffffff; /* Text color of the header */
+}
+
+/* Style the buttons in the popup */
+.date-picker .popup .calendar-date-button {
+    -fx-font-size: 14px; /* Set the font size for the buttons */
+}
+
+/* Style the previous and next buttons in the popup */
+.date-picker .popup .arrow-button {
+    -fx-background-color: #336699; /* Background color of the arrow buttons */
+    -fx-shape: "M 0 0 L 10 0 L 5 10 Z"; /* Customize the arrow shape */
+    -fx-scale-shape: false; /* Don't scale the arrow shape */
+}
 
 
 
