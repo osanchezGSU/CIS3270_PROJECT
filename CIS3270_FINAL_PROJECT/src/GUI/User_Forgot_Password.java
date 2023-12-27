@@ -121,7 +121,7 @@ public class User_Forgot_Password {
         String enteredAnswer = answerTextField.getText();
  
         if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
-            errorMessageAnswer.setText("Please select a security question and enter the answer.");
+            errorMessageUsername.setText("Please select a security question and enter the answer.");
             return;
         }
  
@@ -147,7 +147,7 @@ public class User_Forgot_Password {
                 if (isCorrect) {
                     displayPassword();
                 } else {
-                    errorMessageAnswer.setText("The answer is incorrect.");
+                    errorMessageUsername.setText("The answer is incorrect.");
                 }
             }
  
@@ -169,7 +169,7 @@ public class User_Forgot_Password {
         String enteredAnswer = answerTextField.getText();
  
         if (selectedQuestion == null || selectedQuestion.isEmpty() || enteredAnswer.isEmpty()) {
-            errorMessageAnswer.setText("Please select a security question and enter the answer.");
+            errorMessageUsername.setText("Please select a security question and enter the answer.");
             return;
         }
  
@@ -201,7 +201,7 @@ public class User_Forgot_Password {
                     passwordLabel.setVisible(true);
                     clearErrorMessages(); // Clear any error messages
                 } else {
-                    errorMessageAnswer.setText("The answer is incorrect.");
+                    errorMessageUsername.setText("The answer is incorrect.");
                 }
             }
  
@@ -216,7 +216,6 @@ public class User_Forgot_Password {
  
     private void clearErrorMessages() {
         errorMessageUsername.setText("");
-        errorMessageSecurity.setText("");
-        errorMessageAnswer.setText("");
+       
     }
 }

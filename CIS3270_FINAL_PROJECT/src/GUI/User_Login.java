@@ -58,6 +58,8 @@ public class User_Login {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
     }
 
     public void loginButtonOnAction(ActionEvent e) {
