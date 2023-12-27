@@ -44,9 +44,13 @@ public class FlightLogDB {
     private static List<String> getUniqueCities(String columnName) {
         List<String> cities = new ArrayList<>();
 
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT DISTINCT " + columnName + " FROM FlightLog";
@@ -67,10 +71,13 @@ public class FlightLogDB {
 
     private static List<String> getUniqueCitiesForCities(String columnName, String departureCity, String arrivalCity) {
         List<String> cities = new ArrayList<>();
-
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT DISTINCT " + columnName + " FROM FlightLog WHERE DepartureCity = ? AND ArrivalCity = ?";
@@ -94,9 +101,13 @@ public class FlightLogDB {
     private static List<String> getUniqueArrivalCities(String columnName, String departureCity) {
         List<String> cities = new ArrayList<>();
 
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT DISTINCT " + columnName + " FROM FlightLog WHERE DepartureCity = ?";
@@ -121,10 +132,13 @@ public class FlightLogDB {
     
     public static List<Flight> getFlightInfo(String arrivalCity, String departureCity, String date) {
     	List<Flight> ls = new ArrayList();
-
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+    	String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
         
        
 
@@ -157,9 +171,13 @@ public class FlightLogDB {
     public static List<String> getAirlineFilters(String departureCity, String arrivalCity, String date) {
         List<String> AirlineNames = new ArrayList<>();
 
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT DISTINCT AirlineName FROM FlightLog WHERE DepartureCity = ? AND ArrivalCity = ? AND FlightDate = ?";
@@ -185,10 +203,13 @@ public class FlightLogDB {
     public static List<String> getBookedFlightIDs(String usernameID) {
         List<String> FlightIDs = new ArrayList<>();
 
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
-
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT FlightID  FROM Reservations WHERE Username = ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -215,10 +236,13 @@ public class FlightLogDB {
         if (flightIDs.isEmpty()) {
             return flightDetails; // or throw an exception or handle it as appropriate
         }
-
-        String jdbcUrl = "jdbc:mysql://localhost/Aerobookings";
-        String username = "root";
-        String password = "root";
+        String databaseName = "AeroBookings";
+		//String databaseUser = "root";//
+		//String databasePassword = "root";//
+		//String url = "jdbc:mysql://localhost/" + databaseName;//
+		String jdbcUrl = "jdbc:mysql://database-1.cvnfcprgmyxr.us-east-2.rds.amazonaws.com:3306/" + databaseName;
+		String username = "admin";
+		String password = "adminadmin";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
             String sql = "SELECT * FROM FlightLog WHERE FlightID IN (" +
