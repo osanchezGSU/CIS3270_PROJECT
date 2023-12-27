@@ -33,7 +33,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="FlightTime" prefHeight="19.0" prefWidth="125.0" text="FlightTime">
+                  <Label fx:id="FlightTime1" prefHeight="19.0" prefWidth="125.0" text="FlightTime">
                      <font>
                         <Font size="15.0" />
                      </font></Label>

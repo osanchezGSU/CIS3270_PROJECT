@@ -47,6 +47,13 @@ public class FlightItem implements Initializable{
     private Label FlightTime;
     
     @FXML
+    private Label FlightDate;
+    
+    @FXML
+    private Label FlightTime1;
+    
+    
+    @FXML
     private Label Price;
 
     @FXML
@@ -240,7 +247,7 @@ public class FlightItem implements Initializable{
               
                 
             } 
-            Label flightTimeLabel = (Label) popUpDetails.lookup("#FlightTime");
+            Label flightTimeLabel = (Label) popUpDetails.lookup("#FlightTime1");
             if (flightTimeLabel != null) {
             	flightTimeLabel.setText(flight.getTime());
             	
@@ -369,7 +376,7 @@ public class FlightItem implements Initializable{
 	        
 	       
 
-    	 String insertToRegister = "INSERT INTO Reservations (Username, FlightID, NumOfTravelers, ReservationDate) VALUES (?, ?, ?, ?)";
+    	 String insertToRegister = "INSERT INTO Reservations (Username, FlightID, NumOfTravelers, ReservationDate, FlightDateTime) VALUES (?, ?, ?, ?, ?)";
 
     	 try {
     	        // Use Statement.RETURN_GENERATED_KEYS to get the generated keys
@@ -378,6 +385,7 @@ public class FlightItem implements Initializable{
     	        preparedStatement.setString(2, SelectedFlightID.getText());
     	        preparedStatement.setInt(3, numberOfTravelers);
     	        preparedStatement.setString(4, setTimeStamp());
+    	        preparedStatement.setString(5, FlightDate.getText() +" "+ FlightTime1.getText() );
 
     	        preparedStatement.executeUpdate();
 
@@ -393,34 +401,36 @@ public class FlightItem implements Initializable{
     	    }
     	}
     private boolean isFlightAlreadyBooked() {
-    	Customer user = User_Registration.user;
-        // Implement the logic to check if the flight ID is in the reservation table
-        String flightIdToCheck = SelectedFlightID.getText(); // Get the flight ID
+    	 Customer user = User_Registration.user;
+    	    String flightIdToCheck = SelectedFlightID.getText();
+    	    String flightDateTime =  FlightDate.getText() +" "+ FlightTime1.getText();
 
-        // Your database logic to check if the flight ID is already in the reservation table
-        // You can use the UserDBTEST or another appropriate class to execute a SQL query
+    	    // Your database logic to check if the flight ID and time are already in the reservation table
+    	    // You can use the UserDBTEST or another appropriate class to execute a SQL query
 
-        // Example query (you need to adapt this to your database structure)
-        String query = "SELECT COUNT(*) FROM Reservations WHERE FlightID = ? AND Username = ? ";
+    	    // Example query (you need to adapt this to your database structure)
+    	    String query = "SELECT COUNT(*) FROM Reservations WHERE FlightID = ? AND FlightDateTime = ? AND Username = ?";
 
-        try (Connection connection = new UserDBTEST().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+    	    try (Connection connection = new UserDBTEST().getConnection();
+    	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, flightIdToCheck);
-            preparedStatement.setString(2, user.getUsername());
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    int count = resultSet.getInt(1);
-                    return count > 0; // Return true if count is greater than 0 (flight is already booked)
-                }
-            }
+    	        preparedStatement.setString(1, flightIdToCheck);
+    	        preparedStatement.setString(2, flightDateTime);
+    	        preparedStatement.setString(3, user.getUsername());
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    	        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+    	            if (resultSet.next()) {
+    	                int count = resultSet.getInt(1);
+    	                return count > 0; // Return true if count is greater than 0 (flight is already booked)
+    	            }
+    	        }
 
-        return false; // Return false if there is an error or the flight is not booked
-    }
+    	    } catch (SQLException e) {
+    	        e.printStackTrace();
+    	    }
+
+    	    return false; // Return false if there is an error or the flight is not booked
+    	}
     private boolean isFlightOverBooked() {
     	if (numberOfTravelers > getNewOpenSeats()) {
     		return true;
